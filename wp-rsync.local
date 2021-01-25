@@ -1,0 +1,3 @@
+#!/bin/bash
+echo 'Syncing local copy of Perlanproject.cloud'
+rsync -rluvz perlanroot@perlanproject.cloud:perlanproject.cloud .
