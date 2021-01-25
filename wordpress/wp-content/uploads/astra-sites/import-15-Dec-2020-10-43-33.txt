@@ -1,0 +1,53 @@
+
+---- Processing WordPress Page - for Gutenberg ---- "279"
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/hero-bg-01.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/hero-bg-01.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/07\/hero-bg-01.jpg","id":0}
+Inserted - Post 280 - attachment - hero-bg-01.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/hero-bg-01.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/08/about.png
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/08/about.png
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/08\/about.png","id":0}
+Inserted - Post 281 - attachment - about.png
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/about.png
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/facilites.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/facilites.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/07\/facilites.jpg","id":0}
+Inserted - Post 282 - attachment - facilites.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/facilites.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/affordable-pricing.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/affordable-pricing.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/07\/affordable-pricing.jpg","id":0}
+Inserted - Post 283 - attachment - affordable-pricing.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/affordable-pricing.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/gallery-1.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/gallery-1.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/07\/gallery-1.jpg","id":0}
+Inserted - Post 284 - attachment - gallery-1.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/gallery-1.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/gallery-2.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/07/gallery-2.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/07\/gallery-2.jpg","id":0}
+Inserted - Post 285 - attachment - gallery-2.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/gallery-2.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery3-free-img.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery3-free-img.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/06\/gallery3-free-img.jpg","id":0}
+Inserted - Post 286 - attachment - gallery3-free-img.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/gallery3-free-img.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery1-free-img.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery1-free-img.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/06\/gallery1-free-img.jpg","id":0}
+Inserted - Post 287 - attachment - gallery1-free-img.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/gallery1-free-img.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery4-free-img.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/gallery4-free-img.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/06\/gallery4-free-img.jpg","id":0}
+Inserted - Post 288 - attachment - gallery4-free-img.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/gallery4-free-img.jpg
+Source - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/left-free-img.jpg
+BATCH - SKIP Image {already imported from xml} - https://websitedemos.net/co-working-space-08/wp-content/uploads/sites/656/2020/06/left-free-img.jpg
+Log - {"url":"https:\/\/websitedemos.net\/co-working-space-08\/wp-content\/uploads\/sites\/656\/2020\/06\/left-free-img.jpg","id":0}
+Inserted - Post 289 - attachment - left-free-img.jpg
+BATCH - SUCCESS Image {Imported} - http://localhost/wp-content/uploads/2020/12/left-free-img.jpg
+Complete 

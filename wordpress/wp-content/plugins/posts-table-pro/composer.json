@@ -1,0 +1,28 @@
+{
+    "name": "barn2/posts-table-pro",
+    "description": "Posts Table Pro plugin for WordPress.",
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Barn2 Plugins",
+            "email": "support@barn2.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Barn2\\Plugin\\Posts_Table_Pro\\": "includes",
+            "Barn2\\PTP_Lib\\": "lib",
+            "WPTRT\\AdminNotices\\": "lib/vendor/admin-notices/src"
+        },
+        "files": [
+            "lib/class-html-data-table.php",
+            "lib/class-wp-scoped-hooks.php",
+            "includes/template-functions.php",
+            "includes/deprecated.php"
+        ]
+    }
+}
