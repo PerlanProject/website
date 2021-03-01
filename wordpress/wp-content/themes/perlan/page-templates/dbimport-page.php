@@ -47,11 +47,11 @@ get_header();
             			continue;
             		}
             		            		
-            		$flight_name = 'Flight ' . sprintf("%04d", $flight_number);// dump_values is for debugging: echoes the key/val pairs
-            		$dump_values = false;
+            		$flight_name = 'Flight ' . sprintf("%04d", $flight_number);	// dump_values is for debugging: echoes the key/val pairs
+            		$dump_values = true;
             		if ($dump_values) {
             			echo '<H3>Row key/val pairs</H3>';
-	            		while (list($key, $val) = each($comb)) {
+	            		foreach ($comb as $key => $val) {
 	            			echo 'key: ' . $key . ' val: ' . $val . "<br>";
 	            		}
             		}
@@ -85,7 +85,7 @@ get_header();
             					"meta_input" => $comb,
             				),
             				true
-            				);
+            			);
             			if (is_wp_error($err)) {
             				$msg = $err->get_error_message();
             				echo "ERROR creating flight (wp_insert_post): " . $msg . "<br>";
@@ -113,7 +113,7 @@ get_header();
             	foreach ( $arr as $rec ) {
             		$post = get_post( $rec );
             		echo 'Flight: ' . $post->post_title . '<br>';
-            		$err = wp_delete_post($post->ID, True);
+            		$err = wp_delete_post($post->ID, True);	// force delete
             		if (is_wp_error($err)) {
             			$msg = $err->get_error_message();
             			echo "ERROR: " . $msg . "<br>";

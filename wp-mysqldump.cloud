@@ -1,3 +1,0 @@
-#!/bin/bash
-set -x
-time mysqldump --all-databases -h mysql.perlanproject.cloud -u nerdpress -pxE78o6c2QTk8wJtv > mysql.perlanproject.cloud

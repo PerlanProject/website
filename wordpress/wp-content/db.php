@@ -1,1 +1,0 @@
-/Users/jdm/workbench/Perlan/wordpress/wp-content/plugins/query-monitor/wp-content/db.php
