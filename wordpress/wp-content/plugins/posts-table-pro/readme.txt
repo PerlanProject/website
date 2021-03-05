@@ -2,9 +2,9 @@
 Contributors: andykeith, barn2media
 Tags: posts, table, tables, shortcode, search, sort
 Requires at least: 4.9
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.3.2
+Stable tag: 2.3.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -34,8 +34,24 @@ See refer to the [documentation](https://barn2.co.uk/kb-categories/posts-table-p
 
 == Changelog ==
 
+= 2.3.4 =
+Release date 5 March 2021
+
+ * Fix: Fixed a bug with the 'term' option for post tables using complex queries involving several taxonomies.
+ * Fix: Fixed a bug which caused accidental display of the responsive child row when opening the featured image lightbox.
+ * Fix: Improved loading of icon font to prevent render blocking.
+ * Tested up to WordPress 5.7.
+
+= 2.3.3 =
+Release date 25 February 2021
+
+ * Fix: Fixed a bug with the post totals message in certain scenarios.
+ * Tweak: Minor changes to the plugin settings page and internal code library.
+
+<!--more-->
+
 = 2.3.2 =
-Release date 13 January 2020
+Release date 13 January 2021
 
  * New: Added new settings to customize the table design.
  * New: Added an 'exclude_term' shortcode option to exclude posts belonging to one or more custom taxonomy terms.
@@ -51,8 +67,6 @@ Release date 18 November 2020
  * Fix: Bug introduced in version 2.3 which caused non-Latin characters to be removed from column and filter headings.
  * Fix: Bug with post totals message when using lazy load.
  * Dev: Improve code for overriding post totals messages.
-
-<!--more-->
 
 = 2.3 =
 Release date 13 November 2020

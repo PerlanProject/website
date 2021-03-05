@@ -222,6 +222,7 @@
         margin: 0 !important; // TO
         padding: 6px 6px 6px 10px;
         line-height: normal;
+        display: list-item; // TO
 
         &:focus {
             outline: none; // Remove Safari blue outline
@@ -348,6 +349,7 @@
 
         .dtr-title {
             margin: 0 15px 4px 0;
+            vertical-align: top;
         }
 
         .dtr-data {

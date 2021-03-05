@@ -9,6 +9,7 @@ use Barn2\Plugin\Posts_Table_Pro\Table_Args,
     Barn2\PTP_Lib\Conditional,
     Barn2\PTP_Lib\Plugin\Licensed_Plugin,
     Barn2\PTP_Lib\Admin\Settings_API_Helper,
+    Barn2\PTP_Lib\Admin\Plugin_Promo,
     Barn2\PTP_Lib\Util as Lib_Util;
 
 /**
@@ -26,10 +27,15 @@ class Settings_Page implements Service, Registerable, Conditional {
 
     private $plugin;
     private $default_settings;
+    private $services;
 
     public function __construct( Licensed_Plugin $plugin ) {
         $this->plugin           = $plugin;
         $this->default_settings = Table_Args::get_table_defaults();
+        $this->services         = [
+            new Settings_API_Helper( $this->plugin ),
+            new Plugin_Promo( $this->plugin )
+        ];
     }
 
     public function is_required() {
@@ -39,6 +45,8 @@ class Settings_Page implements Service, Registerable, Conditional {
     public function register() {
         add_action( 'admin_menu', [ $this, 'add_settings_page' ] );
         add_action( 'admin_init', [ $this, 'register_settings' ] );
+
+        Lib_Util::register_services( $this->services );
     }
 
     public function add_settings_page() {
@@ -111,20 +119,24 @@ class Settings_Page implements Service, Registerable, Conditional {
 
     public function display_settings_page() {
         ?>
-        <div class="wrap">
-            <h1><?php _e( 'Posts Table Pro Settings', 'posts-table-pro' ); ?></h1>
-            <form action="options.php" method="post" class="posts-table-settings">
-                <?php
-                // Output the hidden form fields (_wpnonce, etc)
-                settings_fields( self::OPTION_GROUP );
+        <div class="wrap barn2-settings barn2-settings-flex posts-table-settings">
+            <?php do_action( 'barn2_before_plugin_settings', $this->plugin->get_id() ); ?>
+            <div class="barn2-settings-inner">
+                <h1><?php _e( 'Posts Table Pro Settings', 'posts-table-pro' ); ?></h1>
+                <form action="options.php" method="post">
+                    <?php
+                    // Output the hidden form fields (_wpnonce, etc)
+                    settings_fields( self::OPTION_GROUP );
 
-                // Output the sections and their settings
-                do_settings_sections( self::MENU_SLUG );
-                ?>
-                <p class="submit">
-                    <input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'posts-table-pro' ); ?>" />
-                </p>
-            </form>
+                    // Output the sections and their settings
+                    do_settings_sections( self::MENU_SLUG );
+                    ?>
+                    <p class="submit">
+                        <input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'posts-table-pro' ); ?>" />
+                    </p>
+                </form>
+            </div>
+            <?php do_action( 'barn2_after_plugin_settings', $this->plugin->get_id() ); ?>
         </div>
         <?php
     }

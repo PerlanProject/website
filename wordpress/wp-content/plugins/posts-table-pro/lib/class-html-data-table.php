@@ -3,7 +3,7 @@
 /**
  * HTML Data Table classes and functions.
  *
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  * @version   1.3.1
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Html_Table_Cell' ) ) {
      * Represents a cell in a <code>Html_Table_Row</code>.
      *
      * @package   Barn2\barn2-lib
-     * @author    Barn2 Plugins <info@barn2.co.uk>
+     * @author    Barn2 Plugins <support@barn2.co.uk>
      * @license   GPL-3.0
      * @copyright Barn2 Media Ltd
      */
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Html_Table_Row' ) ) {
      * Represents a row in a <code>Html_Data_Table</code>.
      *
      * @package   Barn2\barn2-lib
-     * @author    Barn2 Plugins <info@barn2.co.uk>
+     * @author    Barn2 Plugins <support@barn2.co.uk>
      * @license   GPL-3.0
      * @copyright Barn2 Media Ltd
      */
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Html_Data_Table' ) ) {
      * much cleaner way of producing the HTML required for a table.
      *
      * @package   Barn2\barn2-lib
-     * @author    Barn2 Plugins <info@barn2.co.uk>
+     * @author    Barn2 Plugins <support@barn2.co.uk>
      * @license   GPL-3.0
      * @copyright Barn2 Media Ltd
      */

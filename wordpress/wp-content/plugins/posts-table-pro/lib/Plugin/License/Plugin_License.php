@@ -1,17 +1,17 @@
 <?php
-
 namespace Barn2\PTP_Lib\Plugin\License;
 
-use Barn2\PTP_Lib\Registerable;
-use Barn2\PTP_Lib\Util;
-use Barn2\PTP_Lib\Plugin\License\License;
-use Barn2\PTP_Lib\Plugin\License\License_API;
+use Barn2\PTP_Lib\Registerable,
+    Barn2\PTP_Lib\Util,
+    Barn2\PTP_Lib\Plugin\License\License,
+    Barn2\PTP_Lib\Plugin\License\License_API,
+    DateTime;
 
 /**
  * License magic.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  * @version   1.2
@@ -50,13 +50,13 @@ class Plugin_License implements Registerable, License {
     }
 
     public function exists() {
-        return \get_option( $this->license_option ) ? true : false;
+        return get_option( $this->license_option ) ? true : false;
     }
 
     public function is_valid() {
         // A 'valid' license is one which is active or expired.
         // For expired licenses the plugin will still work (i.e. is valid) but plugin updates will be disabled.
-        return $this->get_license_key() && \in_array( $this->get_status(), array( 'active', 'expired' ) );
+        return $this->get_license_key() && in_array( $this->get_status(), array( 'active', 'expired' ) );
     }
 
     public function is_active() {
@@ -315,7 +315,7 @@ class Plugin_License implements Registerable, License {
         switch ( $this->get_error_code() ) {
             case 'missing' :
                 /* translators: 1: account page link open, 2: account page link close */
-                $message = \sprintf(
+                $message = sprintf(
                     __( 'Invalid license key - please check your order confirmation email or %1$sAccount%2$s.', 'posts-table-pro' ),
                     Util::format_store_link_open( 'account' ),
                     '</a>'
@@ -338,14 +338,14 @@ class Plugin_License implements Registerable, License {
                 $limit   = '';
 
                 if ( isset( $license_info['max_sites'] ) ) {
-                    $limit = \sprintf( _n( '%s site active', '%s sites active', \absint( $license_info['max_sites'] ), 'posts-table-pro' ), $license_info['max_sites'] );
+                    $limit = sprintf( _n( '%s site active', '%s sites active', absint( $license_info['max_sites'] ), 'posts-table-pro' ), $license_info['max_sites'] );
                 }
 
-                $message        = \sprintf( __( 'Your license key has reached its activation limit (%s).', 'posts-table-pro' ), $limit );
+                $message        = sprintf( __( 'Your license key has reached its activation limit (%s).', 'posts-table-pro' ), $limit );
                 $read_more_link = Util::format_store_link( 'kb/license-key-problems', __( 'Read more', 'posts-table-pro' ) );
 
                 /* translators: support for RTL. 1: license limit error message, 2: a read more link */
-                $message = \sprintf( __( '%1$s %2$s', 'posts-table-pro' ), $message, $read_more_link );
+                $message = sprintf( __( '%1$s %2$s', 'posts-table-pro' ), $message, $read_more_link );
                 break;
             case 'inactive':
             case 'site_inactive':
@@ -356,17 +356,17 @@ class Plugin_License implements Registerable, License {
 
                 // See if we have a valid expiry date by checking first 4 chars are numbers (the expiry year).
                 // This is only a rough check - createFromFormat() will validate fully and return a DateTime object if valid.
-                if ( ! empty( $license_info['expires'] ) && \is_numeric( \substr( $license_info['expires'], 0, 4 ) ) ) {
-                    if ( $expiry_datetime = \DateTime::createFromFormat( 'Y-m-d H:i:s', $license_info['expires'] ) ) {
+                if ( ! empty( $license_info['expires'] ) && is_numeric( substr( $license_info['expires'], 0, 4 ) ) ) {
+                    if ( $expiry_datetime = DateTime::createFromFormat( 'Y-m-d H:i:s', $license_info['expires'] ) ) {
                         /* translators: %s: The license expiry date */
-                        $message = \sprintf( __( 'Your license key expired on %s.', 'posts-table-pro' ), $expiry_datetime->format( \get_option( 'date_format' ) ) );
+                        $message = sprintf( __( 'Your license key expired on %s.', 'posts-table-pro' ), $expiry_datetime->format( get_option( 'date_format' ) ) );
                     }
                 }
 
                 $renewal_link = Util::format_link( $this->get_renewal_url(), __( 'Renew now for 20% discount.', 'posts-table-pro' ), true );
 
                 /* translators: support for RTL. 1: expired license error message, 2: a renewal link */
-                $message      = \sprintf( __( '%1$s %2$s', 'posts-table-pro' ), $message, $renewal_link );
+                $message      = sprintf( __( '%1$s %2$s', 'posts-table-pro' ), $message, $renewal_link );
                 break;
             case 'disabled':
                 $message      = $this->get_license_disabled_message();
@@ -432,16 +432,16 @@ class Plugin_License implements Registerable, License {
             return;
         }
 
-        $license_key = \get_option( $this->legacy_db_prefix . '_license_key' );
+        $license_key = get_option( $this->legacy_db_prefix . '_license_key' );
 
-        if ( $license_key && \is_string( $license_key ) ) {
+        if ( $license_key && is_string( $license_key ) ) {
             // Migrate from legacy license data.
             $data = array(
                 'license' => $license_key,
                 'url'     => $this->get_home_url()
             );
 
-            $status = \get_option( $this->legacy_db_prefix . '_license_status' );
+            $status = get_option( $this->legacy_db_prefix . '_license_status' );
 
             if ( 'valid' === $status ) {
                 $data['status'] = 'active';
@@ -452,10 +452,10 @@ class Plugin_License implements Registerable, License {
             }
 
             // Remove legacy license data.
-            \delete_option( $this->legacy_db_prefix . '_license_key' );
-            \delete_option( $this->legacy_db_prefix . '_license_status' );
-            \delete_option( $this->legacy_db_prefix . '_license_error' );
-            \delete_option( $this->legacy_db_prefix . '_license_debug' );
+            delete_option( $this->legacy_db_prefix . '_license_key' );
+            delete_option( $this->legacy_db_prefix . '_license_status' );
+            delete_option( $this->legacy_db_prefix . '_license_error' );
+            delete_option( $this->legacy_db_prefix . '_license_debug' );
 
             $this->set_license_data( $data );
         }
@@ -464,7 +464,7 @@ class Plugin_License implements Registerable, License {
     private function get_home_url() {
         if ( null === $this->home_url ) {
             // We don't use home_url() here as this runs the 'home_url' filter which other plugins hook into (e.g. multi-lingual plugins).
-            $this->home_url = $this->clean_license_url( \get_option( 'home' ) );
+            $this->home_url = $this->clean_license_url( get_option( 'home' ) );
         }
         return $this->home_url;
     }
@@ -515,7 +515,7 @@ class Plugin_License implements Registerable, License {
 
     private function get_license_data() {
         if ( null === $this->license_data ) {
-            $license = \get_option( $this->license_option, $this->get_default_data() );
+            $license = get_option( $this->license_option, $this->get_default_data() );
 
             if ( is_scalar( $license ) ) {
                 $license = array( 'license' => $license );
@@ -528,7 +528,7 @@ class Plugin_License implements Registerable, License {
 
     private function set_license_data( array $data ) {
         $this->license_data = $this->sanitize_license_data( $data );
-        \update_option( $this->license_option, $this->license_data, false );
+        update_option( $this->license_option, $this->license_data, false );
     }
 
     private function update_license_data( array $data ) {
@@ -539,12 +539,12 @@ class Plugin_License implements Registerable, License {
         $license_data['error_message'] = '';
 
         // Merge current data with new $data before setting.
-        $this->set_license_data( \array_merge( $license_data, $data ) );
+        $this->set_license_data( array_merge( $license_data, $data ) );
     }
 
     private function sanitize_license_data( array $data ) {
         $default_data = $this->get_default_data();
-        $data         = \array_merge( $default_data, $data );
+        $data         = array_merge( $default_data, $data );
 
         if ( ! $this->is_valid_status( $data['status'] ) ) {
             $data['status'] = $default_data['status'];
@@ -599,15 +599,15 @@ class Plugin_License implements Registerable, License {
     }
 
     private function is_valid_status( $status ) {
-        return $status && \in_array( $status, array( 'active', 'inactive', 'expired', 'disabled', 'invalid' ) );
+        return $status && in_array( $status, array( 'active', 'inactive', 'expired', 'disabled', 'invalid' ) );
     }
 
     private function to_license_status( $api_license_status ) {
         if ( 'valid' === $api_license_status ) {
             return 'active';
-        } elseif ( \in_array( $api_license_status, array( 'inactive', 'site_inactive' ) ) ) {
+        } elseif ( in_array( $api_license_status, array( 'inactive', 'site_inactive' ) ) ) {
             return 'inactive';
-        } elseif ( \in_array( $api_license_status, array( 'expired', 'disabled' ) ) ) {
+        } elseif ( in_array( $api_license_status, array( 'expired', 'disabled' ) ) ) {
             return $api_license_status;
         }
         return 'invalid';

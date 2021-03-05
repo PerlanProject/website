@@ -1,14 +1,14 @@
 <?php
-
 namespace Barn2\PTP_Lib\Plugin;
 
 /**
  * Extends the Plugin interface to add additional functions for licensed plugins.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
+ * @version   1.1
  */
 interface Licensed_Plugin extends Plugin {
 
@@ -16,6 +16,7 @@ interface Licensed_Plugin extends Plugin {
      * Get the item ID of this plugin.
      *
      * @return int The item ID
+     * @deprecated 1.1 Replaced by Plugin::get_id()
      */
     public function get_item_id();
 

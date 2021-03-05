@@ -6,7 +6,7 @@ namespace Barn2\PTP_Lib\Plugin\License;
  * Interface to represent an API wrapper for a license system.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */

@@ -55,7 +55,7 @@ class Plugin extends Premium_Plugin implements Registerable, Translatable, Servi
         load_plugin_textdomain( 'posts-table-pro', false, $this->get_slug() . '/languages' );
     }
 
-    public function create_services() {
+    public function get_services() {
         $services = [
             'admin'         => new Admin\Admin_Controller( $this ),
             'settings_page' => new Admin\Settings_Page( $this )

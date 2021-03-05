@@ -38,7 +38,7 @@ class Admin_Controller implements Registerable, Service, Conditional {
         add_action( 'admin_enqueue_scripts', [ $this, 'load_settings_page_scripts' ] );
     }
 
-    public function create_services() {
+    public function get_services() {
         return [
             new Admin_Links( $this->plugin ),
             new TinyMCE()

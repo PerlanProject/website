@@ -76,16 +76,9 @@ class Table_Query {
             return $this->total_filtered_posts;
         }
 
-        $filtered_total = 0;
-
-        if ( is_array( $this->posts ) ) {
-            // If we already have posts then this must be the filtered list, so return its count.
-            $filtered_total = count( $this->posts );
-        } else {
-            // Otherwise we need to calculate total by running a new query.
-            $filtered_total_query = new WP_Query( $this->add_user_search_args( $this->build_post_totals_query() ) );
-            $filtered_total       = $filtered_total_query->post_count;
-        }
+        // Calculate filtered total by running a new query.
+        $filtered_total_query = new WP_Query( $this->add_user_search_args( $this->build_post_totals_query() ) );
+        $filtered_total       = $filtered_total_query->post_count;
 
         $this->total_filtered_posts = $this->check_within_post_limit( $filtered_total );
         return $this->total_filtered_posts;
@@ -196,14 +189,24 @@ class Table_Query {
         // Custom term args.
         if ( ! empty( $this->args->term ) ) {
             $term_query   = [];
-            $and_relation = false !== strpos( $this->args->term, '+' );
+            $parsed_terms = Util::parse_term_arg( $this->args->term, true );
 
-            foreach ( Util::parse_term_arg( $this->args->term ) as $taxonomy => $terms ) {
-                $term_query[] = $this->tax_query_item( $terms, $taxonomy, ( $and_relation ? 'AND' : 'IN' ) );
+            foreach ( $parsed_terms as $taxonomy => $terms ) {
+                // Ignore our internal '_relations' key which contains meta info about the term relationships.
+                if ( '_relations' === $taxonomy ) {
+                    continue;
+                }
+
+                if ( isset( $parsed_terms['_relations'][$taxonomy] ) ) {
+                    $operator = ( 'AND' === $parsed_terms['_relations'][$taxonomy] ) ? 'AND' : 'IN';
+                }
+
+                $term_query[] = $this->tax_query_item( $terms, $taxonomy, $operator );
             }
 
-            $term_query = $this->maybe_add_relation( $term_query, ( $and_relation ? 'AND' : 'OR' ) );
-            $tax_query  = $this->maybe_nest_query( $tax_query, $term_query );
+            $outer_relation = isset( $parsed_terms['_relations']['_outer'] ) ? $parsed_terms['_relations']['_outer'] : 'OR';
+            $term_query     = $this->maybe_add_relation( $term_query, $outer_relation );
+            $tax_query      = $this->maybe_nest_query( $tax_query, $term_query );
         }
 
         if ( ! empty( $this->args->exclude_term ) ) {

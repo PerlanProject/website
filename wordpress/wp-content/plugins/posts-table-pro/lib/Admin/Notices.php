@@ -6,7 +6,7 @@ namespace Barn2\PTP_Lib\Admin;
  * Extends the WPTRT Notices class to allow additional HTML in the admin notice.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */

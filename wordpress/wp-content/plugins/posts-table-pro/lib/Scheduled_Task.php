@@ -8,7 +8,7 @@ namespace Barn2\PTP_Lib;
  * The task is automatically unscheduled on plugin deactivation.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  * @version   1.0

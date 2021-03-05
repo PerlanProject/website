@@ -13,7 +13,7 @@
  * Plugin Name:     Posts Table Pro
  * Plugin URI:      https://barn2.co.uk/wordpress-plugins/posts-table-pro/
  * Description:     Display your site's posts, pages, and custom post types in a sortable, searchable and filterable data table.
- * Version:         2.3.2
+ * Version:         2.3.4
  * Author:          Barn2 Plugins
  * Author URI:      https://barn2.co.uk
  * Text Domain:     posts-table-pro
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 const PLUGIN_FILE    = __FILE__;
-const PLUGIN_VERSION = '2.3.2';
+const PLUGIN_VERSION = '2.3.4';
 
 // Include autoloader.
 require_once __DIR__ . '/vendor/autoload.php';

@@ -1,5 +1,4 @@
 <?php
-
 namespace Barn2\PTP_Lib\Plugin;
 
 use Barn2\PTP_Lib\Registerable,
@@ -15,25 +14,26 @@ use Barn2\PTP_Lib\Registerable,
  * Extends Simple_Plugin to add additional functions for premium plugins (i.e. with a license key).
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
- * @version   1.1
+ * @version   1.2
  */
 class Premium_Plugin extends Simple_Plugin implements Registerable, Licensed_Plugin {
 
     private $services = [];
 
     public function __construct( array $data ) {
-        parent::__construct( \array_merge( array(
+        parent::__construct( array_merge( [
             'item_id'              => 0,
             'license_setting_path' => '',
             'legacy_db_prefix'     => ''
-                ), $data ) );
+                ], $data
+        ) );
 
-        $this->data['license_setting_path'] = \ltrim( $this->data['license_setting_path'], '/' );
+        $this->data['license_setting_path'] = ltrim( $this->data['license_setting_path'], '/' );
 
-        $this->services['license']         = new Plugin_License( $this->get_item_id(), EDD_Licensing::instance(), $this->get_legacy_db_prefix() );
+        $this->services['license']         = new Plugin_License( $this->get_id(), EDD_Licensing::instance(), $this->get_legacy_db_prefix() );
         $this->services['plugin_updater']  = new Plugin_Updater( $this, EDD_Licensing::instance() );
         $this->services['license_checker'] = new License_Checker( $this->get_file(), $this->get_license() );
         $this->services['license_setting'] = new License_Key_Setting( $this->get_license(), $this->is_woocommerce(), $this->is_edd() );
@@ -44,6 +44,12 @@ class Premium_Plugin extends Simple_Plugin implements Registerable, Licensed_Plu
         Util::register_services( $this->services );
     }
 
+    /**
+     * Get the item ID for the plugin, usually the EDD Download ID.
+     *
+     * @return int The item ID
+     * @deprecated since 1.2 Replaced by Simple_Plugin::get_id()
+     */
     public function get_item_id() {
         return (int) $this->data['item_id'];
     }
@@ -63,7 +69,7 @@ class Premium_Plugin extends Simple_Plugin implements Registerable, Licensed_Plu
     public function get_license_page_url() {
         // Default to plugin settings URL if there's no license setting path.
         return ! empty( $this->data['license_setting_path'] ) ?
-            \admin_url( $this->data['license_setting_path'] ) :
+            admin_url( $this->data['license_setting_path'] ) :
             parent::get_settings_page_url();
     }
 

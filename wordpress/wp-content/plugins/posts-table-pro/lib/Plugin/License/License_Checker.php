@@ -9,7 +9,7 @@ use Barn2\PTP_Lib\Scheduled_Task,
  * A scheduled task to periodically check the status of the plugin license.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */

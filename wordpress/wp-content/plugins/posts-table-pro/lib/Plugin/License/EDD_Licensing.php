@@ -1,12 +1,11 @@
 <?php
-
 namespace Barn2\PTP_Lib\Plugin\License;
 
 /**
  * This class provides an interface to the EDD Software Licensing API. API requests are handled on the Barn2 website by the EDD Software Licensing plugin.
  *
  * @package   Barn2\barn2-lib
- * @author    Barn2 Plugins <info@barn2.co.uk>
+ * @author    Barn2 Plugins <support@barn2.co.uk>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
@@ -137,11 +136,11 @@ final class EDD_Licensing implements License_API {
 
         $result = $this->api_request( $api_params );
 
-        if ( $result->success && \is_object( $result->response ) ) {
+        if ( $result->success && is_object( $result->response ) ) {
             foreach ( $result->response as $prop => $data ) {
                 // We're forced to use the (potentially usafe) maybe_unserialize here as the
                 // EDD Software Licensing API serializes some of the returned plugin data.
-                $result->response->$prop = \maybe_unserialize( $data );
+                $result->response->$prop = maybe_unserialize( $data );
             }
         }
 
@@ -150,7 +149,7 @@ final class EDD_Licensing implements License_API {
 
     private function api_request( $params ) {
         // Call the Software Licensing API.
-        $response = \wp_remote_post( self::EDD_LICENSING_ENDPOINT, apply_filters( 'barn2_edd_licensing_api_request_args',
+        $response = wp_remote_post( self::EDD_LICENSING_ENDPOINT, apply_filters( 'barn2_edd_licensing_api_request_args',
                 array(
                     'timeout'   => self::API_TIMEOUT,
                     'sslverify' => false,
@@ -166,21 +165,21 @@ final class EDD_Licensing implements License_API {
             $result->response = self::get_api_error_message( $response );
         } else {
             $result->success  = true;
-            $result->response = \json_decode( \wp_remote_retrieve_body( $response ) );
+            $result->response = json_decode( wp_remote_retrieve_body( $response ) );
         }
 
         return $result;
     }
 
     private static function is_api_error( $response ) {
-        return \is_wp_error( $response ) || 200 !== \wp_remote_retrieve_response_code( $response );
+        return is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response );
     }
 
     private static function get_api_error_message( $response ) {
-        if ( \is_wp_error( $response ) ) {
+        if ( is_wp_error( $response ) ) {
             return $response->get_error_message();
-        } elseif ( \wp_remote_retrieve_response_message( $response ) ) {
-            return \wp_remote_retrieve_response_message( $response );
+        } elseif ( wp_remote_retrieve_response_message( $response ) ) {
+            return wp_remote_retrieve_response_message( $response );
         } else {
             return __( 'An error has occurred, please try again.', 'posts-table-pro' );
         }

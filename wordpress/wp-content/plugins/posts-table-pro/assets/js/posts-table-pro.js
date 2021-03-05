@@ -65,6 +65,17 @@
         }
     }
 
+    function initPhotoswipeForContent( $el ) {
+        if ( typeof PhotoSwipe === 'undefined' || typeof PhotoSwipeUI_Default === 'undefined' ) {
+            return;
+        }
+
+        $el
+            .find( '.posts-table-gallery__image a' )
+            .off( 'click.ptp' )
+            .on( 'click.ptp', onOpenPhotoswipe );
+    }
+
     /*
      * Removes items from the allItems list which aren't present in visibleItems. Used to restrict search filters options.
      */
@@ -117,7 +128,18 @@
             } ).join( '' );
 
             let $table = $( '<table class="' + options.tableClass + ' dtr-details" width="100%"/>' ).append( data );
+
+            // Initialise media for modal.
             initMedia( $table );
+
+            // Prevent clicking on featured image in modal by removing the link.
+            let $img = $table.find( '.posts-table-image-wrapper > a > img' );
+
+            if ( $img.length ) {
+                $img.parent().parent().prepend( $img );
+                $img.siblings( 'a' ).remove();
+            }
+
             return $table;
         };
     }
@@ -153,7 +175,7 @@
             .on( 'responsive-display.dt', { table: this }, onResponsiveDisplay )
             .on( 'xhr.dt', { table: this }, onAjaxLoad );
 
-        $( window ).on( 'load', { table: this }, onWindowLoad );
+        $( window ).on( 'load.ptp', { table: this }, onWindowLoad );
 
         // Show the table - loading class removed on init.dt
         $table.addClass( 'loading' ).css( 'visibility', 'visible' );
@@ -265,10 +287,15 @@
     };
 
     PostsTable.prototype.init = function() {
-        this.config = this.buildConfig();
+        let table = this;
+
+        table.$table.trigger( 'preInit.ptp', [table] );
 
         // Initialize DataTables instance.
-        this.dataTable = this.$table.DataTable( this.config );
+        table.config = table.buildConfig();
+        table.dataTable = table.$table.DataTable( table.config );
+
+        return table;
     };
 
     PostsTable.prototype.initFilters = function() {
@@ -313,7 +340,7 @@
 
             // Append select to wrapper
             $select
-                .on( 'change', { table: table }, onFilterChange )
+                .on( 'change.ptp', { table: table }, onFilterChange )
                 .appendTo( $filtersWrap );
 
             filtersAdded++;
@@ -338,12 +365,15 @@
     };
 
     PostsTable.prototype.initPhotoswipe = function() {
-        if ( typeof PhotoSwipe === 'undefined' ) {
-            return this;
+        let table = this;
+
+        if ( typeof PhotoSwipe === 'undefined' || typeof PhotoSwipeUI_Default === 'undefined' ) {
+            return table;
         }
 
-        this.$table.on( 'click', '.posts-table-gallery__image a', onOpenPhotoswipe );
-        return this;
+        table.$table.on( 'click.ptp', 'td.child .posts-table-gallery__image a', onOpenPhotoswipe );
+
+        return table;
     };
 
     PostsTable.prototype.initResetButton = function() {
@@ -355,7 +385,7 @@
 
         let $resetButton =
             $( '<div class="posts-table-reset"><a class="reset" href="#">' + posts_table_params.language.resetButton + '</a></div>' )
-            .on( 'click', 'a', { table: table }, onReset );
+            .on( 'click.ptp', 'a', { table: table }, onReset );
 
         // Append reset button
         let $firstChild = table.$tableControls.filter( '.posts-table-above' ).children( '.posts-table-select-filters, .dataTables_length, .dataTables_filter' ).eq( 0 );
@@ -371,7 +401,7 @@
 
     PostsTable.prototype.initSearchOnClick = function() {
         if ( this.config.clickFilter ) {
-            this.$table.on( 'click', 'a', { table: this }, onClickToSearch );
+            this.$table.on( 'click.ptp', 'a', { table: this }, onClickToSearch );
         }
 
         return this;
@@ -433,7 +463,7 @@
             val = $select.val(); // Store value so we can reset later.
 
         if ( !filters || !( column in filters ) ) {
-            return;
+            return table;
         }
 
         // Drop all filter items.
@@ -447,6 +477,8 @@
 
         // Restore previous selected value.
         $select.val( val );
+
+        return table;
     };
 
     PostsTable.prototype.scrollToTop = function() {
@@ -568,8 +600,11 @@
             initMedia( table.$table );
         }
 
-        table.showHidePagination();
-        table.$table.trigger( 'draw.ptp', [table] );
+        initPhotoswipeForContent( table.$table );
+
+        table
+            .showHidePagination()
+            .$table.trigger( 'draw.ptp', [table] );
     }
 
     function onFilterChange( event, setValueOnly ) {
@@ -636,7 +671,12 @@
     }
 
     function onOpenPhotoswipe( event ) {
-        event.preventDefault();
+        event.stopPropagation();
+
+        // Only open for click events.
+        if ( 'click' !== event.type ) {
+            return false;
+        }
 
         let pswpElement = $( '.pswp' )[0],
             $target = $( event.target ),
@@ -671,6 +711,8 @@
         // Initializes and opens PhotoSwipe
         let photoswipe = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options );
         photoswipe.init();
+
+        return false;
     }
 
     function onPage( event ) {
@@ -742,7 +784,11 @@
             initMedia( row.child() );
 
             let table = event.data.table;
+
+            //@deprecated
             table.$table.trigger( 'responsive-display.ptp', [table, row.child()] );
+
+            table.$table.trigger( 'responsiveDisplay.ptp', [table, datatable, row, showHide] );
         }
     }
 
@@ -773,7 +819,7 @@
         } );
     };
 
-    $( document ).ready( function() {
+    $( function() {
         if ( 'DataTable' in $.fn && $.fn.DataTable.ext ) {
             // Change DataTables error reporting to throw rather than alert
             $.fn.DataTable.ext.errMode = 'throw';

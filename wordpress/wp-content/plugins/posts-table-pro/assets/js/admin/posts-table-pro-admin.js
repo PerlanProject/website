@@ -20,8 +20,7 @@
         $children.toggle( showChildren );
     };
 
-    $( document ).ready( function() {
-
+    $( function() {
         $( '.color-picker' ).wpColorPicker();
 
         $( '.form-table .toggle' ).each( function() {

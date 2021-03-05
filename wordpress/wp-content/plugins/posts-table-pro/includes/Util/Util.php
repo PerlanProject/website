@@ -171,33 +171,46 @@ class Util {
      * without the taxonomy if they belong to the previous taxonomy, e.g. some_category:term1,term2,term3.
      *
      * @param string $term_arg The term arg to parse.
+     * @param boolean $include_relations Whether to include the relationships between terms and taxonomies (OR, AND, etc) in the result. If set
+     *    to true, an additional '_relations' key is returned in the result.
      * @return array The sorted terms, keyed by taxonomy.
      */
-    public static function parse_term_arg( $term_arg ) {
+    public static function parse_term_arg( $term_arg, $include_relations = false ) {
         if ( empty( $term_arg ) ) {
             return [];
         }
 
-        // Some args use + as a delimeter.
-        $term_arg = str_replace( '+', ',', $term_arg );
+        $term_array = preg_split( '/([,\+])/', $term_arg, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
-        // Remove invalid terms.
-        $term_array = array_filter( explode( ',', $term_arg ), function( $value ) {
-            return strlen( $value ) > 0;
-        } );
-
-        $sorted_terms = [];
-        $taxonomy     = false;
+        $result   = [];
+        $taxonomy = false;
+        $relation = null;
 
         foreach ( $term_array as $term ) {
+            // preg_split also returns the delimiters, so we store the current relation based on this: ',' = OR '+' = AND.
+            if ( ',' === $term ) {
+                $relation = 'OR';
+                continue;
+            } elseif ( '+' === $term ) {
+                $relation = 'AND';
+                continue;
+            }
+
             // Split term around the colon and check valid.
             $term_split = explode( ':', $term, 2 );
 
             if ( 1 === count( $term_split ) ) {
+                // Need to have an existing taxonomy to process this term.
                 if ( ! $taxonomy ) {
                     continue;
                 }
-                $sorted_terms[$taxonomy][] = $term_split[0];
+
+                $result[$taxonomy][] = $term_split[0];
+
+                // Store the relation between the terms.
+                if ( $include_relations && $relation ) {
+                    $result['_relations'][$taxonomy] = $relation;
+                }
             } elseif ( 2 === count( $term_split ) ) {
                 $taxonomy = $term_split[0];
 
@@ -205,11 +218,24 @@ class Util {
                     continue;
                 }
 
-                $sorted_terms[$taxonomy][] = $term_split[1];
+                $result[$taxonomy][] = $term_split[1];
+
+                if ( $include_relations ) {
+                    // If there's no relation set, default to OR - if there are additional terms for this taxonomy this may be updated later.
+                    if ( ! isset( $result['_relations'][$taxonomy] ) ) {
+                        $result['_relations'][$taxonomy] = 'OR';
+                    }
+
+                    // We set the outer relation based on the delimiter between the first and second taxonomies (if there is more than one taxonomy).
+                    // If there are more than two taxonomies, we ignore any further relations as you can only set one 'outer' relation between taxonomy queries.
+                    if ( $relation && ! isset( $result['_relations']['_outer'] ) ) {
+                        $result['_relations']['_outer'] = $relation;
+                    }
+                }
             }
         }
 
-        return $sorted_terms;
+        return $result;
     }
 
     // TERMS

@@ -46,6 +46,7 @@ class Frontend_Scripts implements Service, Registerable, Conditional {
         // Register front-end styles and scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'load_head_scripts' ], 20 );
 
         add_filter( 'posts_table_language_defaults', [ $this, 'format_totals_strings' ], 20 );
     }
@@ -70,12 +71,18 @@ class Frontend_Scripts implements Service, Registerable, Conditional {
         if ( ! empty( $misc_options['design'] ) && 'custom' === $misc_options['design'] ) {
             wp_add_inline_style( self::SCRIPT_HANDLE, self::build_custom_styles( $misc_options, Util::TABLE_CLASS ) );
         }
+
+        // Header styles - we just a dummy handle as we only need inline styles in <head>.
+        wp_register_style( 'posts-table-pro-head', false );
+
+        // Ensure tables don't 'flicker' on page load - visibility is set by JS when table initialised.
+        wp_add_inline_style( 'posts-table-pro-head', '.posts-data-table { visibility: hidden; }' );
     }
 
     public function register_scripts() {
         $suffix = Lib_Util::get_script_suffix();
 
-        wp_register_script( 'jquery-datatables-ptp', Util::get_asset_url( 'js/datatables/datatables.min.js' ), [ 'jquery' ], self::DATATABLES_VERSION, true );
+        wp_register_script( 'jquery-datatables-ptp', Util::get_asset_url( "js/datatables/datatables{$suffix}.js" ), [ 'jquery' ], self::DATATABLES_VERSION, true );
         wp_register_script( 'jquery-blockui', Util::get_asset_url( 'js/jquery-blockui/jquery.blockUI.min.js' ), [ 'jquery' ], '2.70.0', true );
         wp_register_script( 'photoswipe', Util::get_asset_url( 'js/photoswipe/photoswipe.min.js' ), [], '4.1.3', true );
         wp_register_script( 'photoswipe-ui-default', Util::get_asset_url( 'js/photoswipe/photoswipe-ui-default.min.js' ), [ 'photoswipe' ], '4.1.3', true );
@@ -136,6 +143,10 @@ class Frontend_Scripts implements Service, Registerable, Conditional {
         wp_localize_script( self::SCRIPT_HANDLE, 'posts_table_params', apply_filters( 'posts_table_pro_script_params', $script_params ) );
     }
 
+    public function load_head_scripts() {
+        wp_enqueue_style( 'posts-table-pro-head' );
+    }
+
     public function format_totals_strings( array $strings ) {
         // If _POST_ and _POSTS_ placeholders are found, we replace with the post type name, defaulting to 'post' and 'posts'.
         // If a custom single/plural has been set by 3rd party code, we use that instead.
@@ -153,11 +164,17 @@ class Frontend_Scripts implements Service, Registerable, Conditional {
             }
         }
 
-        return str_replace(
-            [ '_POST_', '_POSTS_' ],
-            [ $single, $plural ],
-            $strings
-        );
+        // Remove any arrays as we can't search/replace on them using str_replace.
+        $strings_to_replace = array_filter( $strings, 'is_scalar' );
+
+        // Merge back any arrays we removed.
+        $strings = array_merge( $strings, str_replace(
+                [ '_POST_', '_POSTS_' ],
+                [ $single, $plural ],
+                $strings_to_replace
+            ) );
+
+        return $strings;
     }
 
     public static function load_table_scripts( Table_Args $args = null ) {
