@@ -26,23 +26,9 @@ Wordpress code written for this project:
 - wp-downgrade
 - github-updater: auto installs & updates plugins & themes from Github
 
-# Installation & Setup
+## Plugin Versions
 
-either paste from relevant notes files or link to them
-
-## Apache Webserver
-
-## PHP
-
-## MariaDB
-
-## WordPress
-
-WP-CLI?  can install plugins, or even github-updater, which can then add PODS etc.
-
-- on Linux, download the phar file and add to path
-
-- on Mac, install via `brew install wp-cli`
+As of this writing, plugin versions are as follows:
 
   ```sh
   $ brew install wp-cli

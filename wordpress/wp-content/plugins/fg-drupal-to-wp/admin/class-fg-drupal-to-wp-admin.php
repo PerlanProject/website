@@ -1040,7 +1040,10 @@ SQL;
 				
 				// To solve the issue of links containing ":" in multisite mode
 				kses_remove_filters();
-
+				
+				global $wp_filter;
+				unset($wp_filter['wp_insert_post']); // Remove the "wp_insert_post" that consumes a lot of CPU and memory
+				
 				// Check prerequesites before the import
 				$do_import = apply_filters('fgd2wp_pre_import_check', true);
 				if ( !$do_import) {

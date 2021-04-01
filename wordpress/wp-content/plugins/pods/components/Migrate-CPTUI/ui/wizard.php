@@ -82,12 +82,7 @@
 													?>
 													<li>
 														<div class="pods-field pods-boolean">
-															<?php
-															echo PodsForm::field( 'post_type[' . $post_type_name . ']', pods_var_raw( 'post_type[' . $post_type_name . ']', 'post', true ), 'boolean', [
-																'boolean_yes_label' => $post_type_label . ' (' . $post_type_name . ')',
-																'disable_dfv'       => true,
-															] );
-															?>
+															<?php echo PodsForm::field( 'post_type[' . $post_type_name . ']', pods_var_raw( 'post_type[' . $post_type_name . ']', 'post', true ), 'boolean', array( 'boolean_yes_label' => $post_type_label . ' (' . $post_type_name . ')' ) ); ?>
 														</div>
 													</li>
 													<?php
@@ -127,12 +122,7 @@
 													$taxonomy_label = pods_var_raw( 'label', $taxonomy, ucwords( str_replace( '_', ' ', $taxonomy_name ) ) );
 													?>
 													<li>
-														<?php
-														echo PodsForm::field( 'taxonomy[' . $taxonomy_name . ']', pods_var_raw( 'taxonomy[' . $taxonomy_name . ']', 'post', true ), 'boolean', [
-															'boolean_yes_label' => $taxonomy_label . ' (' . $taxonomy_name . ')',
-															'disable_dfv'       => true,
-														] );
-														?>
+														<?php echo PodsForm::field( 'taxonomy[' . $taxonomy_name . ']', pods_var_raw( 'taxonomy[' . $taxonomy_name . ']', 'post', true ), 'boolean', array( 'boolean_yes_label' => $taxonomy_label . ' (' . $taxonomy_name . ')' ) ); ?>
 													</li>
 													<?php
 												}

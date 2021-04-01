@@ -3,8 +3,8 @@ Contributors: Kerfred
 Plugin Uri: https://wordpress.org/plugins/fg-drupal-to-wp/
 Tags: drupal, wordpress, importer, migration, migrator, converter, import, cck, internationalization, ubercart
 Requires at least: 4.5
-Tested up to: 5.6.2
-Stable tag: 2.36.0
+Tested up to: 5.7
+Stable tag: 2.38.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ A plugin to migrate articles, stories, pages, categories, tags, images from Drup
 
 This plugin migrates articles, stories, pages, categories, tags and images from Drupal to Wordpress.
 
-It has been tested with **Drupal 4, 5, 6, 7, 8 & 9** and **Wordpress 5.6**. It is compatible with multisite installations.
+It has been tested with **Drupal 4, 5, 6, 7, 8 & 9** and **Wordpress 5.7**. It is compatible with multisite installations.
 
 Major features include:
 
@@ -184,6 +184,12 @@ You can read this post to fix it: http://forumsarchive.laravel.io/viewtopic.php?
 Don't hesitate to let a comment on the [forum](https://wordpress.org/support/plugin/fg-drupal-to-wp) or to report bugs if you found some.
 
 == Changelog ==
+
+= 2.38.0 =
+* Tested with WordPress 5.7
+
+= 2.37.0 =
+* Tweak: Remove the "wp_insert_post" that consumes a lot of CPU and memory
 
 = 2.36.0 =
 * New: Make the plugin more generic to be able to import the data that are not in the "node" table
@@ -610,6 +616,5 @@ Don't hesitate to let a comment on the [forum](https://wordpress.org/support/plu
 
 == Upgrade Notice ==
 
-= 2.36.0 =
-New: Make the plugin more generic to be able to import the data that are not in the "node" table
-Tested with WordPress 5.6.2
+= 2.38.0 =
+Tested with WordPress 5.7

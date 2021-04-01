@@ -30,8 +30,7 @@ class PodsField_Password extends PodsField {
 	 */
 	public function setup() {
 
-		static::$group = __( 'Text', 'pods' );
-		static::$label = __( 'Password', 'pods' );
+		self::$label = __( 'Password', 'pods' );
 	}
 
 	/**
@@ -98,18 +97,7 @@ class PodsField_Password extends PodsField {
 			$options['readonly'] = true;
 		}
 
-		if ( ! empty( $options['disable_dfv'] ) ) {
-			return pods_view( PODS_DIR . 'ui/fields/password.php', compact( array_keys( get_defined_vars() ) ) );
-		}
-
-		wp_enqueue_script( 'pods-dfv' );
-
-		$type = pods_v( 'type', $options, static::$type );
-
-		$args = compact( array_keys( get_defined_vars() ) );
-		$args = (object) $args;
-
-		$this->render_input_script( $args );
+		pods_view( PODS_DIR . 'ui/fields/password.php', compact( array_keys( get_defined_vars() ) ) );
 	}
 
 	/**

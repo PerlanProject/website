@@ -30,8 +30,7 @@ class PodsField_Text extends PodsField {
 	 */
 	public function setup() {
 
-		static::$group = __( 'Text', 'pods' );
-		static::$label = __( 'Plain Text', 'pods' );
+		self::$label = __( 'Plain Text', 'pods' );
 	}
 
 	/**
@@ -51,15 +50,15 @@ class PodsField_Text extends PodsField {
 			),
 			'output_options'                     => array(
 				'label' => __( 'Output Options', 'pods' ),
-				'boolean_group' => array(
+				'group' => array(
 					static::$type . '_allow_shortcode' => array(
-						'label'      => __( 'Allow Shortcodes', 'pods' ),
+						'label'      => __( 'Allow Shortcodes?', 'pods' ),
 						'default'    => 0,
 						'type'       => 'boolean',
 						'dependency' => true,
 					),
 					static::$type . '_allow_html'      => array(
-						'label'      => __( 'Allow HTML', 'pods' ),
+						'label'      => __( 'Allow HTML?', 'pods' ),
 						'default'    => 0,
 						'type'       => 'boolean',
 						'dependency' => true,
@@ -146,18 +145,7 @@ class PodsField_Text extends PodsField {
 			$options['readonly'] = true;
 		}
 
-		if ( ! empty( $options['disable_dfv'] ) ) {
-			return pods_view( PODS_DIR . 'ui/fields/text.php', compact( array_keys( get_defined_vars() ) ) );
-		}
-
-		wp_enqueue_script( 'pods-dfv' );
-
-		$type = pods_v( 'type', $options, static::$type );
-
-		$args = compact( array_keys( get_defined_vars() ) );
-		$args = (object) $args;
-
-		$this->render_input_script( $args );
+		pods_view( PODS_DIR . 'ui/fields/text.php', compact( array_keys( get_defined_vars() ) ) );
 	}
 
 	/**

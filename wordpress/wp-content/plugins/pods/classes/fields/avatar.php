@@ -1,4 +1,5 @@
 <?php
+require_once PODS_DIR . 'classes/fields/file.php';
 
 /**
  * PodsField_Avatar class.
@@ -34,8 +35,7 @@ class PodsField_Avatar extends PodsField_File {
 	 */
 	public function setup() {
 
-		static::$group = __( 'Relationships / Media', 'pods' );
-		static::$label = __( 'Avatar', 'pods' );
+		self::$label = __( 'Avatar', 'pods' );
 	}
 
 	/**

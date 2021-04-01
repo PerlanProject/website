@@ -1,5 +1,5 @@
 <?php
-$field = array_merge( $field_settings['field_defaults'], $field->get_args() );
+$field = array_merge( $field_settings['field_defaults'], $field );
 
 // Migrate pick object when saving
 if ( 'pod' == pods_v( 'pick_object', $field ) ) {
@@ -32,7 +32,7 @@ if ( isset( $field['pick_val'] ) ) {
 }
 
 // Remove weight as we're going to allow reordering here
-unset( $field['weight'] );
+unset( $field['weight'], $field['options'], $field['table_info'] );
 
 // Remove options, we don't need it in the JSON
 $data = array(
