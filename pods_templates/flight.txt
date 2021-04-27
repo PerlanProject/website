@@ -1,0 +1,47 @@
+<figure class="wp-block-table is-style-stripes">
+	<table>
+		<tbody>		
+			[if significance]
+				<tr><td><b>Significance</b></td><td>{@significance}</td></tr>
+			[/if]
+			<tr><td><b>Flight Date</b></td><td>{@flight_date}</td></tr>
+			<tr><td><b>City</b></td><td>{@city}</td></tr>
+			<tr><td><b>Airport</b></td><td>{@airport}</td></tr>			
+
+			<tr><td><b>Takeoff Time (local)</b></td><td>{@takeoff_time_local}</td></tr>
+			<tr><td><b>Landing Time (local)</b></td><td>{@landing_time_local}</td></tr>
+			<tr><td><b>Duration (hours)</b></td><td>{@duration}</td></tr>
+			
+			<tr><td><b>Release Altitude (feet)</b></td><td>{@release_altitude_feet}</td></tr>
+			<tr><td><b>Maximum Altitude (feet)</b></td><td>{@maximum_altitude_feet}</td></tr>
+			[if maximum_gps_altitude_feet]
+				<tr><td><b>Maximum GPS Altitude (feet)</b></td><td>{@maximum_gps_altitude_feet}</td></tr>
+			[/if]
+
+			<tr><td><b>Pilot-in-Command</b></td><td>{@pic}</td></tr>
+			<tr><td><b>Second-in-Command</b></td><td>{@sic}</td></tr>
+
+			<tr>
+				<td><b>Data</b></td>
+				<td>
+					[if data_ac]
+						<a href="{@data_ac, esc_url}">Perlan aircraft systems</a>
+					[/if]
+					[if data_kml]
+						<a href="{@data_kml, esc_url}">Google Earth KML file</a> <p>
+					[/if]
+					[if data_uv]
+						<a href="{@data_uv, esc_url}">UVA/UVB</a>
+					[/if]
+					[if data_imu]
+						<a href="{@data_imu, esc_url}">IMU</a>
+					[/if]
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<figcaption></figcaption>
+</figure>
+
+

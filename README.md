@@ -6,11 +6,11 @@ for the Perlan Project's data website. As of this writing, the website is hosted
 At the root are utilities for synchronizing between the cloud copy and your local dev environment.
 
 # Code
-Wordpress code written for this project:
+Code written for this project:
 
 - wp-content/plugins/perlan - the Perlan plugin, which works with the Theme
 - wp-content/themes/perlan - the Perlan child theme of Illustratr
-- wp-content/pods - file backup of the PODS templates used to display single posts.
+- ./pods_templates - file backup of the PODS templates (in the database) used to display single posts.
 
 # Plugins
 

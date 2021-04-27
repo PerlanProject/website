@@ -1,0 +1,4 @@
+from perlan_wordpress|wp_options|active_plugins
+to reenable plugins, put this (or some of this) back
+
+a:12:{i:0;s:31:"cred-frontend-editor/plugin.php";i:1;s:25:"duplicator/duplicator.php";i:2;s:70:"fg-drupal-to-wp-premium-nodeblock-module/fg-drupal-to-wp-nodeblock.php";i:3;s:51:"fg-drupal-to-wp-premium/fg-drupal-to-wp-premium.php";i:4;s:17:"perlan/perlan.php";i:5;s:17:"plotwp/plotwp.php";i:7;s:40:"posts-table-pro/posts-data-table-pro.php";i:8;s:27:"toolset-blocks/wp-views.php";i:9;s:36:"toolset-maps/toolset-maps-loader.php";i:10;s:14:"types/wpcf.php";i:11;s:29:"wp-downgrade/wp-downgrade.php";i:12;s:23:"wp-plotly/wp-plotly.php";}
