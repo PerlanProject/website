@@ -6,7 +6,7 @@ for the Perlan Project's data website. As of this writing, the website is hosted
 At the root are utilities for synchronizing between the cloud copy and your local dev environment.
 
 - data: a symlink to ../data, so that that dir can use Git LFS in its own repo
-- data_convert: JupyterLab notebooks and Python to prep data from other locations, e.g., SVN and the old data web location
+- wrangling: JupyterLab notebooks and Python to prep data from other locations, e.g., SVN and the old data web location
 - wordpress: the root of the WordPress web site
 - wp-content/plugins/perlan: the Perlan plugin, which works with the Theme
 - wp-content/themes/perlan: the Perlan child theme of Illustratr
