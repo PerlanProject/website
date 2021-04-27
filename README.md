@@ -5,12 +5,15 @@ for the Perlan Project's data website. As of this writing, the website is hosted
 
 At the root are utilities for synchronizing between the cloud copy and your local dev environment.
 
-# Code
-Code written for this project:
-
-- wp-content/plugins/perlan - the Perlan plugin, which works with the Theme
-- wp-content/themes/perlan - the Perlan child theme of Illustratr
-- ./pods_templates - file backup of the PODS templates (in the database) used to display single posts.
+- data: a symlink to ../data, so that that dir can use Git LFS in its own repo
+- data_convert: JupyterLab notebooks and Python to prep data from other locations, e.g., SVN and the old data web location
+- wordpress: the root of the WordPress web site
+- wp-content/plugins/perlan: the Perlan plugin, which works with the Theme
+- wp-content/themes/perlan: the Perlan child theme of Illustratr
+- pods_templates: file backup of the PODS templates (in the database) used to display single posts.
+- wp-mysqldump.cloud: shell script to make a text file backup of the database as it is on the cloud server
+- wp-mysqldump.local: shell script to make a text file backup of the database as it is on the local server
+- wp-rsync.local: shell script to synchronize files between this directory and its clone on the cloud server
 
 # Plugins
 
