@@ -6,4 +6,4 @@ HOST=localhost
 USER=nerdpress
 PASS=xE78o6c2QTk8wJtv 
 
-time mysqldump ${DB} -h ${HOST} -u ${USER} -p${PASS} > ../mysql_dumps/${HOST}.`date -j +'%y%m%d'`.sql
+time mysqldump ${DB} -h ${HOST} -u ${USER} -p${PASS} > ./mysql_dumps/${HOST}.`date -j +'%y%m%d'`.sql

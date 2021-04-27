@@ -2305,6 +2305,7 @@ SQL;
 				if ( is_array($matches) ) {
 					foreach ($matches as $match ) {
 						$filename = $match[4];
+						$filename = rawurldecode($filename); // for filenames with spaces or accents
 						$other_attributes = $match[2] . $match[5];
 						// Image Alt
 						$image_alt = '';
@@ -2348,7 +2349,6 @@ SQL;
 			
 			$filename = trim($filename); // for filenames with extra spaces at the beginning or at the end
 			$filename = preg_replace('/[?#].*/', '', $filename); // Remove the attributes and anchors
-			$filename = rawurldecode($filename); // for filenames with spaces or accents
 			$filename = html_entity_decode($filename); // for filenames with HTML entities
 			// Filenames starting with //
 			if ( preg_match('#^//#', $filename) ) {

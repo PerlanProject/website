@@ -127,16 +127,19 @@ get_header();
                     array(
                         'post_type' => 'flight',
                         'relation' => 'AND',
-                        'fields' => array(
-                        	'flight_number' => 65,
-                        ),
+                    	'meta_query' => array(
+                    		'flight_clause' => array(
+                    			'key' => 'flight_number',
+                    			'value' => '65',
+                    		),		
+                    	),
                         'orderby' => 'flight_number',
                         'order' => 'ASC',
                     	'exact' => true,
                         'numberposts' => -1,
                     ),
                 );
-                if (is_wp_error($err)) {
+                if (is_wp_error($arr)) {
                     $msg = $err->get_error_message();
                     echo "ERROR: " . $msg . "<br>";
                 } else {
@@ -147,10 +150,11 @@ get_header();
                     	. $elm->post_title . '</a></li>';
 	                	
 	                	echo('flight_number= ' . $elm->flight_number . "<br>");
-	                    echo('ID= ' . $elm->ID . "<br>");
-	                    echo('post_title= ' . $elm->post_title . "<br>");
-	                    echo('PIC= ' . $elm->pic . "<br>");
-	                    echo('takeoff_time= ' . $elm->takeoff_time . "<br>");
+	                	echo('data_kml= ' . $elm->data_kml . "<br>");
+	                	//echo('ID= ' . $elm->ID . "<br>");
+	                    //echo('post_title= ' . $elm->post_title . "<br>");
+	                    //echo('PIC= ' . $elm->pic . "<br>");
+	                    //echo('takeoff_time= ' . $elm->takeoff_time . "<br>");
 	                }
                 }
                 break;

@@ -78,8 +78,8 @@ if ( !class_exists('FG_Drupal_to_WordPress_Download_HTTP', false) ) {
 		 */
 		public function get_content($source) {
 			$content = false;
-			$source = str_replace(" ", "%20", $source); // for filenames with spaces
-			$source = str_replace("&amp;", "&", $source); // for filenames with &
+			$basename = basename($source);
+			$source = preg_replace('/' . preg_quote($basename) . '$/', rawurlencode($basename), $source);
 
 			$response = wp_remote_get($source, array(
 				'timeout'		=> $this->plugin->plugin_options['timeout'],

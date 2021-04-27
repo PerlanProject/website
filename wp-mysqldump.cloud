@@ -8,4 +8,4 @@ PASS=xE78o6c2QTk8wJtv
 echo 'JDM SEZ: for security, we should change this to run on the cloud server and then scp the file here.'
 echo "That way we don't have to allow db access by remote users at all."
 
-time mysqldump ${DB} -h ${HOST} -u ${USER} -p${PASS} > ../mysql_dumps/${HOST}.`date -j +'%y%m%d'`.sql
+time mysqldump ${DB} -h ${HOST} -u ${USER} -p${PASS} > ./mysql_dumps/${HOST}.`date -j +'%y%m%d'`.sql

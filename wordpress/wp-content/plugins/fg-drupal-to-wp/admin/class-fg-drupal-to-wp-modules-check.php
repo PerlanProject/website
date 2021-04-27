@@ -159,6 +159,13 @@ if ( !class_exists('FG_Drupal_to_WordPress_Modules_Check', false) ) {
 					sprintf($message_addon, __('page titles', 'fg-drupal-to-wp'), $premium_url, $premium_url . 'metatag/', __('Metatag add-on', 'fg-drupal-to-wp'))
 				),
 				
+				// Check if we need the Metatag add-on (Drupal 8)
+				array(array($this, 'count'),
+					array('node__field_meta_tags', 0),
+					'fg-drupal-to-wp-premium-metatag-module/fg-drupal-to-wp-metatag.php',
+					sprintf($message_addon, __('page titles', 'fg-drupal-to-wp'), $premium_url, $premium_url . 'metatag/', __('Metatag add-on', 'fg-drupal-to-wp'))
+				),
+				
 				// Check if we need the Name add-on
 				array(array($this, 'check_drupal7_module'),
 					array('name'),
