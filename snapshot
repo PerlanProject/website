@@ -1,0 +1,5 @@
+#!/bin/bash
+./wp-mysqldump.local
+git add .
+git commit
+git push
