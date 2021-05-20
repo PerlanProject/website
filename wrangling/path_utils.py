@@ -1,14 +1,9 @@
 import shutil, os
 
-root = "../.."
-os.chdir(root)  # normally I loathe side-effects, but all this code is really more like
-                # fancy Bash scripts, so it's handy. Otherwise, each notebook would need to
-                # be updated if the paths change, which is even worse than a side-effect.
-
 svn_root  = 'Controlled.svn/Systems/Data Network Logs/'
 data_root = 'data/'
 flights_root = data_root + 'Flights'
-ballons_root = data_root + 'Soundings'
+soundings_root = data_root + 'Soundings'
 
 
 # returns immediate subdirectories of a given parent, i.e., one level deep
