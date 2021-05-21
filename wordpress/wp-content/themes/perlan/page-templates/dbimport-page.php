@@ -4,7 +4,6 @@
  *
  * @package perlan
  */
-
 get_header();
 ?>
 

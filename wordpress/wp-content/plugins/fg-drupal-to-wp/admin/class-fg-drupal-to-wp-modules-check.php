@@ -292,6 +292,20 @@ if ( !class_exists('FG_Drupal_to_WordPress_Modules_Check', false) ) {
 					sprintf($message_addon, __('Profile2 user fields', 'fg-drupal-to-wp'), $premium_url, $premium_url . 'profile2/', __('Profile2 add-on', 'fg-drupal-to-wp'))
 				),
 				
+				// Check if we need the Geodata add-on (Geofield module)
+				array(array($this, 'check_drupal7_module'),
+					array('geofield'),
+					'fg-drupal-to-wp-premium-geodata-module/fg-drupal-to-wp-geodata.php',
+					sprintf($message_addon, __('Geofield custom fields', 'fg-drupal-to-wp'), $premium_url, $premium_url . 'geodata/', __('Geodata add-on', 'fg-drupal-to-wp'))
+				),
+				
+				// Check if we need the Geodata add-on (Geolocation Field module)
+				array(array($this, 'check_drupal7_module'),
+					array('geolocation'),
+					'fg-drupal-to-wp-premium-geodata-module/fg-drupal-to-wp-geodata.php',
+					sprintf($message_addon, __('Geolocation custom fields', 'fg-drupal-to-wp'), $premium_url, $premium_url . 'geodata/', __('Geodata add-on', 'fg-drupal-to-wp'))
+				),
+				
 			);
 			foreach ( $modules as $module ) {
 				list($callback, $params, $plugin, $message) = $module;

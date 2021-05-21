@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FG Drupal to WordPress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-24 18:37+0100\n"
-"PO-Revision-Date: 2020-12-24 18:38+0100\n"
+"POT-Creation-Date: 2021-05-06 10:45+0200\n"
+"PO-Revision-Date: 2021-05-06 10:46+0200\n"
 "Last-Translator: F. GILLES\n"
 "Language-Team: F. GILLES\n"
 "Language: fr_FR\n"
@@ -247,75 +247,75 @@ msgid_plural "%d stories"
 msgstr[0] "%d article"
 msgstr[1] "%d articles"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1059
+#: admin/class-fg-drupal-to-wp-admin.php:1072
 #, php-format
 msgid "%d category imported"
 msgid_plural "%d categories imported"
 msgstr[0] "%d catégorie importée"
 msgstr[1] "%d catégories importées"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1061
+#: admin/class-fg-drupal-to-wp-admin.php:1074
 #, php-format
 msgid "%d tag imported"
 msgid_plural "%d tags imported"
 msgstr[0] "%d mot-clef importé"
 msgstr[1] "%d mots-clefs importés"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1077
+#: admin/class-fg-drupal-to-wp-admin.php:1090
 #, php-format
 msgid "%d article imported"
 msgid_plural "%d articles imported"
 msgstr[0] "%d article importé"
 msgstr[1] "%d articles importés"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1084
+#: admin/class-fg-drupal-to-wp-admin.php:1097
 #, php-format
 msgid "%d story imported"
 msgid_plural "%d stories imported"
 msgstr[0] "%d article importé"
 msgstr[1] "%d articles importés"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1090
+#: admin/class-fg-drupal-to-wp-admin.php:1103
 #, php-format
 msgid "%d page imported"
 msgid_plural "%d pages imported"
 msgstr[0] "%d page importée"
 msgstr[1] "%d pages importées"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1099
+#: admin/class-fg-drupal-to-wp-admin.php:1112
 #, php-format
 msgid "%d media imported"
 msgid_plural "%d medias imported"
 msgstr[0] "%d média importé"
 msgstr[1] "%d médias importés"
 
-#: admin/class-fg-drupal-to-wp-admin.php:1119
+#: admin/class-fg-drupal-to-wp-admin.php:1132
 msgid "Don't forget to modify internal links."
 msgstr "N'oubliez pas de modifier les liens internes."
 
-#: admin/class-fg-drupal-to-wp-admin.php:1136
+#: admin/class-fg-drupal-to-wp-admin.php:1149
 msgid "The URL field is required to import the media."
 msgstr "Le champ URL est requis pour importer les médias."
 
-#: admin/class-fg-drupal-to-wp-admin.php:1230
-#: admin/class-fg-drupal-to-wp-admin.php:1519
+#: admin/class-fg-drupal-to-wp-admin.php:1243
+#: admin/class-fg-drupal-to-wp-admin.php:1535
 #, php-format
 msgid "Importing %s..."
 msgstr "Import des %s..."
 
-#: admin/class-fg-drupal-to-wp-admin.php:1636
+#: admin/class-fg-drupal-to-wp-admin.php:1657
 msgid ""
 "The import process is still running. Please wait before running it again."
 msgstr ""
 "Le process d’import est toujours en cours. Merci d’attendre avant de le "
 "relancer."
 
-#: admin/class-fg-drupal-to-wp-admin.php:1753
+#: admin/class-fg-drupal-to-wp-admin.php:1777
 #, php-format
 msgid "Node #%d:"
 msgstr "Node #%d:"
 
-#: admin/class-fg-drupal-to-wp-admin.php:2322
+#: admin/class-fg-drupal-to-wp-admin.php:2394
 #, php-format
 msgid "Unable to create directory %s"
 msgstr "Impossible de créer le répertoire %s"
@@ -427,6 +427,7 @@ msgstr "des méta tags"
 #: admin/class-fg-drupal-to-wp-modules-check.php:145
 #: admin/class-fg-drupal-to-wp-modules-check.php:152
 #: admin/class-fg-drupal-to-wp-modules-check.php:159
+#: admin/class-fg-drupal-to-wp-modules-check.php:166
 msgid "Metatag add-on"
 msgstr "du module Metatag"
 
@@ -435,131 +436,145 @@ msgid "nodewords"
 msgstr "des nodewords"
 
 #: admin/class-fg-drupal-to-wp-modules-check.php:159
+#: admin/class-fg-drupal-to-wp-modules-check.php:166
 msgid "page titles"
 msgstr "des titres de page"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:166
+#: admin/class-fg-drupal-to-wp-modules-check.php:173
 msgid "Name custom fields"
 msgstr "des champs personnalisés Name"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:166
+#: admin/class-fg-drupal-to-wp-modules-check.php:173
 msgid "Name add-on"
 msgstr "du module Name"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:173
+#: admin/class-fg-drupal-to-wp-modules-check.php:180
 msgid "Addressfield custom fields"
 msgstr "des champs personnalisés Addressfield"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:173
+#: admin/class-fg-drupal-to-wp-modules-check.php:180
 msgid "Address add-on"
 msgstr "du module Address"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:180
+#: admin/class-fg-drupal-to-wp-modules-check.php:187
 msgid "Ubercart products"
 msgstr "des produits Ubercart"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:180
+#: admin/class-fg-drupal-to-wp-modules-check.php:187
 msgid "Ubercart add-on"
 msgstr "du module Ubercart"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:187
+#: admin/class-fg-drupal-to-wp-modules-check.php:194
 msgid "translations"
 msgstr "des traductions"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:187
+#: admin/class-fg-drupal-to-wp-modules-check.php:194
 msgid "Internationalization add-on"
 msgstr "du module Internationalization"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:194
+#: admin/class-fg-drupal-to-wp-modules-check.php:201
 msgid "node blocks"
 msgstr "des nodeblocks"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:194
+#: admin/class-fg-drupal-to-wp-modules-check.php:201
 msgid "NodeBlock add-on"
 msgstr "du module NodeBlock"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:201
 #: admin/class-fg-drupal-to-wp-modules-check.php:208
+#: admin/class-fg-drupal-to-wp-modules-check.php:215
 msgid "Entity Reference relationships"
 msgstr "des relations EntityReference"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:201
 #: admin/class-fg-drupal-to-wp-modules-check.php:208
+#: admin/class-fg-drupal-to-wp-modules-check.php:215
 msgid "Entity Reference add-on"
 msgstr "du module EntityReference"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:215
+#: admin/class-fg-drupal-to-wp-modules-check.php:222
 msgid "S3 URLs"
 msgstr "des URLs S3"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:215
 #: admin/class-fg-drupal-to-wp-modules-check.php:222
 #: admin/class-fg-drupal-to-wp-modules-check.php:229
 #: admin/class-fg-drupal-to-wp-modules-check.php:236
+#: admin/class-fg-drupal-to-wp-modules-check.php:243
 msgid "Media Provider add-on"
 msgstr "du module Media Provider"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:222
+#: admin/class-fg-drupal-to-wp-modules-check.php:229
 msgid "SoundCloud media fields"
 msgstr "des champs médias SoundCloud"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:229
+#: admin/class-fg-drupal-to-wp-modules-check.php:236
 msgid "YouTube media fields"
 msgstr "des champs médias YouTube"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:236
+#: admin/class-fg-drupal-to-wp-modules-check.php:243
 msgid "Vimeo media fields"
 msgstr "des champs médias Vimeo"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:243
+#: admin/class-fg-drupal-to-wp-modules-check.php:250
 msgid "forums"
 msgstr "des forums"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:243
+#: admin/class-fg-drupal-to-wp-modules-check.php:250
 msgid "Forum add-on"
 msgstr "du module Forum"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:250
+#: admin/class-fg-drupal-to-wp-modules-check.php:257
 msgid "field collections"
 msgstr "des groupes de champs"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:250
+#: admin/class-fg-drupal-to-wp-modules-check.php:257
 msgid "Field Collection add-on"
 msgstr "du module Field Collection"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:257
 #: admin/class-fg-drupal-to-wp-modules-check.php:264
+#: admin/class-fg-drupal-to-wp-modules-check.php:271
 msgid "paragraphs"
 msgstr "des paragraphes"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:257
 #: admin/class-fg-drupal-to-wp-modules-check.php:264
+#: admin/class-fg-drupal-to-wp-modules-check.php:271
 msgid "Paragraphs add-on"
 msgstr "du module Paragraphs"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:271
+#: admin/class-fg-drupal-to-wp-modules-check.php:278
 msgid "Commerce products"
 msgstr "des produits Commerce"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:271
+#: admin/class-fg-drupal-to-wp-modules-check.php:278
 msgid "Commerce add-on"
 msgstr "du module Commerce"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:278
+#: admin/class-fg-drupal-to-wp-modules-check.php:285
 msgid "countries"
 msgstr "des pays"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:278
+#: admin/class-fg-drupal-to-wp-modules-check.php:285
 msgid "Countries add-on"
 msgstr "du module Countries"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:285
+#: admin/class-fg-drupal-to-wp-modules-check.php:292
 msgid "Profile2 user fields"
 msgstr "des champs utilisateurs Profile2"
 
-#: admin/class-fg-drupal-to-wp-modules-check.php:285
+#: admin/class-fg-drupal-to-wp-modules-check.php:292
 msgid "Profile2 add-on"
 msgstr "du module Profile2"
+
+#: admin/class-fg-drupal-to-wp-modules-check.php:299
+msgid "Geofield custom fields"
+msgstr "des champs personnalisés Geofield"
+
+#: admin/class-fg-drupal-to-wp-modules-check.php:299
+#: admin/class-fg-drupal-to-wp-modules-check.php:306
+msgid "Geodata add-on"
+msgstr "du module Geodata"
+
+#: admin/class-fg-drupal-to-wp-modules-check.php:306
+msgid "Geolocation custom fields"
+msgstr "des champs personnalisés Geolocation"
 
 #: admin/partials/actions.php:3
 msgid "Save settings"

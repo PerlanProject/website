@@ -3,8 +3,8 @@ Contributors: Kerfred
 Plugin Uri: https://wordpress.org/plugins/fg-drupal-to-wp/
 Tags: drupal, wordpress, importer, migration, migrator, converter, import, cck, internationalization, ubercart
 Requires at least: 4.5
-Tested up to: 5.7
-Stable tag: 2.38.1
+Tested up to: 5.7.1
+Stable tag: 2.39.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -184,6 +184,10 @@ You can read this post to fix it: http://forumsarchive.laravel.io/viewtopic.php?
 Don't hesitate to let a comment on the [forum](https://wordpress.org/support/plugin/fg-drupal-to-wp) or to report bugs if you found some.
 
 == Changelog ==
+
+= 2.39.0 =
+* New: Check if we need the Geodata add-on
+* Tested with WordPress 5.7.1
 
 = 2.38.1 =
 * Fixed: Media containing % were not imported
@@ -620,6 +624,6 @@ Don't hesitate to let a comment on the [forum](https://wordpress.org/support/plu
 
 == Upgrade Notice ==
 
-= 2.38.1 =
-Fixed: Media containing % were not imported
-Fixed: The Metatag add-on warning was not displayed for Drupal 8 databases
+= 2.39.0 =
+New: Check if we need the Geodata add-on
+Tested with WordPress 5.7.1
