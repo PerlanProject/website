@@ -6,7 +6,7 @@
  * Version: 1.0.0
  */
 function delete_records($post_type = "flight") {
-	echo '<H1>Deleting records (posts) of post_type ' . $post_type . '</H1>';
+	echo '<H1>Deleting posts with post_type \'' . $post_type . '\'</H1>';
 	
 	// safety check: don't delete just any post type...
 	switch ($post_type) {

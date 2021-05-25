@@ -34,8 +34,12 @@ function query_flights() {
 					
 					echo('ID= ' . $elm->ID . "<br>");
 					echo('flight_number= ' . $elm->flight_number . "<br>");
+					echo('data_ac= ' . $elm->data_ac. "<br>");
 					echo('data_kml= ' . $elm->data_kml . "<br>");
-
+					echo('data_uv= ' . $elm->data_uv . "<br>");
+					echo('data_imu= ' . $elm->data_imu . "<br>");
+					echo('data_adp= ' . $elm->data_adp . "<br>");
+					
 					//echo('post_title= ' . $elm->post_title . "<br>");
 					//echo('PIC= ' . $elm->pic . "<br>");
 					//echo('takeoff_time= ' . $elm->takeoff_time . "<br>");

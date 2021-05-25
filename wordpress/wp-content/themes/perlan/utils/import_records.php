@@ -5,7 +5,7 @@
  * Author: jdm
  * Version: 1.0.0
  */
-function import_records($filename = "../data/flights.csv", $post_type = "flight", $print_csv_values=False, $create_posts=True) {
+function import_records($filename = "../data/flights.csv", $post_type = "flight", $print_csv_values=True, $create_posts=True) {
 	echo '<H2>Importing CSV ' . $filename . '</H2>';
 	
 	$file = fopen($filename, "r");
@@ -30,11 +30,8 @@ function import_records($filename = "../data/flights.csv", $post_type = "flight"
 		switch ($post_type) {
 			
 			case 'flight':
-				// deal with flight_number: zero-pad to four places, e.g., "0069"
+				// zero-pad to four places, e.g., "0069"
 				$flight_number = intval($comb['flight_number']);
-				if ($flight_number == 0) {
-					continue;
-				}
 				$title = 'Flight ' . sprintf("%04d", $flight_number); // dump_values is for debugging: echoes the key/val pairs
 				break;
 			
@@ -59,7 +56,7 @@ function import_records($filename = "../data/flights.csv", $post_type = "flight"
 			$existing = get_posts(array(
 				'post_type' => $post_type,
 				'title' => $title, // NOTE: not 'post_title' as you'd expect :-(
-				'numberposts' => - 1,
+				'numberposts' => -1,
 				'exact' => true
 			));
 			if (count($existing)) {
