@@ -404,6 +404,8 @@ function wp_nav_menu_item_post_type_meta_box( $object, $box ) {
 
 		if ( ! empty( $posts_page ) ) {
 			$posts_page_obj             = get_post( $posts_page );
+			if (empty($posts_page_obj))
+				return;
 			$posts_page_obj->posts_page = true;
 
 			$important_pages[]   = $posts_page_obj;

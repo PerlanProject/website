@@ -1,0 +1,44 @@
+#!/bin/bash
+WP_SQL_DUMP_FILE=$1
+MYSQL_ROOT=root
+MYSQL_ROOT_PW='fudge knuckles!!'
+WP_DB=perlan_wordpress
+WP_DB_HOST=localhost
+WP_DB_USER=nerdpress
+WP_DB_USER_PASS=xE78o6c2QTk8wJtv 
+
+if [ $# != 1 ]; then
+	echo "usage: $0 SQL_DUMP_FILE"
+	exit -1
+fi
+if [ ! -f $WP_SQL_DUMP_FILE ]; then
+	echo ERROR: SQL dump file \'$WP_SQL_DUMP_FILE\' does not exist
+	exit -2
+fi
+
+echo Preparing to DROP, CREATE, and restore database ${WP_DB} from dump file ${WP_SQL_DUMP_FILE}...
+
+# Drop and recreate the WordPress db
+
+echo DROP db ${WP_DB}
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT -e "DROP DATABASE IF EXISTS ${WP_DB};"
+
+echo CREATE db ${WP_DB}
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT -e "CREATE DATABASE ${WP_DB};"
+
+# WordPress database user
+
+echo DROP USER ${WP_DB_USER}
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT -e "DROP USER IF EXISTS '${WP_DB_USER}'@'%';"
+
+echo CREATE USER ${WP_DB_USER}
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT -e "CREATE USER '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_USER_PASS}';"
+
+echo 'Granting permissions...'
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT -e "GRANT ALL PRIVILEGES ON ${WP_DB_USER}.* TO '${WP_DB_USER}'@'%' WITH GRANT OPTION;"
+
+# Finally, load the db
+
+echo 'Loading db...'
+MYSQL_PWD=$MYSQL_ROOT_PW mariadb -u $MYSQL_ROOT --database=${WP_DB} < ${WP_SQL_DUMP_FILE}
+
