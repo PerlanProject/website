@@ -23,7 +23,7 @@ get_header();
             	$filename = "../data/flights.csv";
             	$post_type = "flight";
             	
-            	import_records($filename, $post_type);
+            	import_records($filename);
             	break;
             	
             case "delete-flights":
@@ -31,10 +31,10 @@ get_header();
             	break;
             	
             case 'test-flights':
-            	if (function_exists('query_flights')) {
-            		query_flights();
+            	if (function_exists('query_records')) {
+            		query_records('flight');
             	} else {
-            		echo 'ERROR: function ' . 'query_flights' . ' not found';
+            		query_flights();
             	}
             	break;
             	
@@ -44,7 +44,7 @@ get_header();
             	$filename = "../data/soundings.csv";
             	$post_type = "sounding";
             	
-            	import_records($filename, $post_type);
+            	import_records($filename);
             	break;
             
             case "delete-soundings":

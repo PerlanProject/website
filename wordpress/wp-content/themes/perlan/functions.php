@@ -25,8 +25,10 @@ function my_theme_enqueue_styles() {
     );
 }
 
+// you must register any and all functions, via require_once()
 require_once(dirname(__FILE__) . '/utils/' . 'delete_records.php');
 require_once(dirname(__FILE__) . '/utils/' . 'import_records.php');
+require_once(dirname(__FILE__) . '/utils/' . 'query_records.php');
 require_once(dirname(__FILE__) . '/utils/' . 'query_flights.php');
 require_once(dirname(__FILE__) . '/utils/' . 'query_soundings.php');
 

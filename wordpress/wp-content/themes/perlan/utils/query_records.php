@@ -5,20 +5,10 @@
  * Author: jdm
  * Version: 1.0.0
  */
-function query_flights() {
+function query_records($post_type) {
 	$arr = get_posts(
 		array(
-			'post_type' => 'flight',
-			'relation' => 'AND',
-			'meta_query' => array(
-				'flight_clause' => array(
-					'key' => 'flight_number',
-					'value' => '65',
-				),
-			),
-			'orderby' => 'flight_number',
-			'order' => 'ASC',
-			'exact' => true,
+			'post_type' => $post_type,
 			'numberposts' => -1,
 		),
 	);
@@ -33,9 +23,9 @@ function query_flights() {
 					. $elm->post_title . '</a></li>';
 
 			echo 'ID= ' . $elm->ID . "<br>";
-			echo 'Custom Fields';
+			echo '<H3>Custom Fields</H3>';
 			foreach (get_post_custom($elm->ID) as $key => $val) {
-				echo 'key: ' . $key . ' val[0]: ' . $val[0] . "<br>";
+				echo '	<b>' . $key . ':</b>		' . $val[0] . "<br>";
 			}
 
 		}
