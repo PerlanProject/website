@@ -5,7 +5,11 @@
  * Author: jdm
  * Version: 1.0.0
  */
-function import_records($filename = "../data/flights.csv", $meta_prefix="wpcf-", $print_csv_values=True, $create_posts=True) {
+function import_records($filename = "../data/flights-toolset.csv") {
+	$filename = "../data/flights-toolset.csv";  // debug HACK!!
+	$print_csv_values=True;
+	$create_posts=True;
+	
 	echo '<H2>Importing CSV ' . $filename . '</H2>';
 	
 	$file = fopen($filename, "r");
@@ -77,7 +81,7 @@ function import_records($filename = "../data/flights.csv", $meta_prefix="wpcf-",
 					break;
 					
 				default:
-					$meta[$meta_prefix . $key] = $val;
+					$meta[$key] = $val;
 					break;
 			}
 			
