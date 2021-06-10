@@ -1,0 +1,376 @@
+/*repeater field title*/
+.tm-repeater,
+.tm-repeater-field-control-wrap{
+    background: #fefefe;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.tm-repeater-top {
+    padding: 0;
+    cursor: move;
+    background: #fafafa none repeat scroll 0 0;
+    color: #23282d;
+    line-height: 1.4em;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.tm-repeater-title h3,
+.tm-repeater-title h4 {
+    -moz-user-select: none;
+    font-size: 1em;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+    padding: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tm-repeater-title-action {
+    float: right;
+    position: relative;
+}
+.tm-repeater-action {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    margin: 0;
+    outline: 0 none;
+    padding: 10px;
+    color: #555d66;
+}
+.tm-repeater-action .tm-toggle-indicator:before{
+    border-radius: 50%;
+    padding: 1px 2px 1px 0;
+    display: block;
+    font: 400 20px/1 dashicons;
+    content: "\f140";
+    text-decoration: none;
+}
+.repeater-table,
+.repeater-field-control{
+    margin: 0 auto 10px;
+}
+.repeater-table.open .tm-repeater-action .tm-toggle-indicator:before{
+    content: "\f142";
+}
+.tm-repeater-inside,
+.repeater-fields{
+    line-height: 16px;
+    padding: 10px 15px 15px;
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.tm-sortable-placeholder {
+    border: 1px dashed #b4b9be;
+    margin: 0 auto 10px;
+    height: 45px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*Widgets*/
+#business-trade-home-page .widget .widget-top {
+    background: #237EEA!important;
+}
+#business-trade-home-page .widget h1, 
+#business-trade-home-page .widget h2, 
+#business-trade-home-page .widget h3{
+    color:#fff;
+}
+#business-trade-home-page .in-widget-title{
+    color: #fff;
+}
+#business-trade-home-page .widget-action {
+    color: #ffffff;
+    background: #006086;
+}
+#business-trade-home-page label {
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.business-trade-counter-section {
+    margin-top: 60px;
+  
+}
+
+a.tm-business-trade-remove.business-trade-counter-remove.delete {
+    float: left;
+
+}
+
+/*#business-trade-home-page input[type=text], 
+#business-trade-home-page input[type=search], 
+#business-trade-home-page input[type=tel], 
+#business-trade-home-page input[type=time], 
+#business-trade-home-page input[type=url], 
+#business-trade-home-page input[type=week], 
+#business-trade-home-page input[type=password], 
+#business-trade-home-page input[type=color], 
+#business-trade-home-page input[type=date], 
+#business-trade-home-page input[type=datetime], 
+#business-trade-home-page input[type=datetime-local], 
+#business-trade-home-page input[type=email], 
+#business-trade-home-page input[type=month], 
+#business-trade-home-page input[type=number], 
+#business-trade-home-page select, 
+#business-trade-home-page textarea {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    background-color: #fff;
+    color: #32373c;
+    outline: 0;
+    -webkit-transition: 50ms border-color ease-in-out;
+    transition: 50ms border-color ease-in-out;
+    height: 34px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%;
+}*/
+.widefat {
+    margin-bottom: 15px;
+}
+.widget-inside small {
+    font-size: 13px;
+    margin-bottom: 10px!important;
+    display: inline-block;
+}
+a.tm-business-trade-add.button, .business-trade-clients-add {
+    background: #F15826!important;
+    height: 34px;
+    line-height: 34px;
+    font-size: 15px;
+    color: #fff !important;
+    border: 1px solid #F15826;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+a.business-trade-clients-add.button {
+    margin-top: 27px;
+    margin-bottom: 14px;
+}
+
+.business-trade-clients-section label {
+    font-size: 16px;
+    color: #0275d8!important;
+}
+
+.widget-control-actions {
+    margin: 0 -15px;
+    border-top: 1px solid #e5e5e5;
+    padding: 15px 15px 0 15px;
+}
+.tm-business-trade-sec {
+    margin: 0 -15px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+    display: inline-block;
+    width: 100%;
+    background: #f5f5f5;
+}
+a.tm-business-trade-remove.delete,.business-trade-clients-remove, .business-trade-clients-remove:hover  {
+    background: #dc3232!important;
+    padding: 7px 10px;
+    color: #fff;
+    border-radius: 3px;
+    float: right;
+    cursor: pointer;
+}
+
+.business-trade-clients-section {
+    margin-top: 50px;
+}
+
+
+.tm-business_trade-sec{margin-bottom: 25px;}
+
+input#remove_media_button { 
+
+    background: #d9534f!important;
+    height: 34px;
+    border-color: #d9534f!important;
+    position: relative;
+    color: #ffffff;
+
+}
+
+input#custom_media_button, .media-image-upload {
+    background: #0275d8!important;
+    height: 34px;
+    border-color: #0275d8!important;
+    position: relative;
+    color: #ffffff!important;
+}
+
+
+
+button.button-link.button-link-delete.widget-control-remove {
+    background: red;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+button.button-link.widget-control-close {
+    background: #f0ad4e;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+/*repeater field title*/
+.tm-repeater,
+.tm-repeater-field-control-wrap{
+    background: #fff;
+}
+.tm-repeater-top {
+    padding: 0;
+    cursor: move;
+    background: #fafafa none repeat scroll 0 0;
+    color: #23282d;
+    line-height: 1.4em;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.tm-repeater-title h3,
+.tm-repeater-title h4 {
+    -moz-user-select: none;
+    font-size: 1em;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+    padding: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tm-repeater-title-action {
+    float: right;
+    position: relative;
+}
+.tm-repeater-action {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    margin: 0;
+    outline: 0 none;
+    padding: 10px;
+    color: #555d66;
+}
+.tm-repeater-action .tm-toggle-indicator:before{
+    border-radius: 50%;
+    padding: 1px 2px 1px 0;
+    display: block;
+    font: 400 20px/1 dashicons;
+    content: "\f140";
+    text-decoration: none;
+}
+.repeater-table,
+.repeater-field-control{
+    margin: 0 auto 10px;
+}
+.repeater-table.open .tm-repeater-action .tm-toggle-indicator:before{
+    content: "\f142";
+}
+.tm-repeater-inside,
+.repeater-fields{
+    line-height: 16px;
+    padding: 10px 15px 15px;
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.tm-sortable-placeholder {
+    border: 1px dashed #b4b9be;
+    margin: 0 auto 10px;
+    height: 45px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+li#customize-control-business-trade_homepage_slider_oction {
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+}
+li#customize-control-business-trade_slider_oction {
+    margin: auto;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+button.button.ct-repeater-add-control-field {
+    background: #5cb85c!important;
+    height: 34px;
+    line-height: 34px;
+    font-size: 15px;
+    color: #fff;
+    border: 1px solid #5cb85c;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+a.repeater-field-remove {
+    background: red;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a.repeater-field-close {
+    background: #f0ad4e;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.clearfix.repeater-footer {
+    color: #fff;
+}
+li#customize-control-business-trade_sidebar_layout_oction {
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+li#customize-control-business-trade_sidebar_layout_oction {
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(2), 
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(3), 
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(4), 
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(5), 
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(6), 
+#sub-accordion-section-business-trade_blog_archive_layout_oction li:nth-child(7) {
+    background: #fff;
+    padding:10px;
+    box-sizing:border-box; 
+    margin:0
+}
+.wp-admin select[multiple] {
+    height: auto !important;
+}

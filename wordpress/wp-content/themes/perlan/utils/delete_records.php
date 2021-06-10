@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Perlan
+ * Plugin Name: perlan
  * Description: Creates Flight and Sounding CPTs from CSV file
  * Author: jdm
  * Version: 1.0.0

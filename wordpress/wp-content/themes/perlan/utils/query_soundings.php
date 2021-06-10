@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Perlan
+ * Plugin Name: perlan
  * Description: test queries of 'sounding' posts
  * Author: jdm
  * Version: 1.0.0
@@ -24,10 +24,8 @@ function query_soundings() {
 					
 					echo('ID= ' . $elm->ID . "<br>");
 					echo('KML file= ' . $elm->kml_file . "<br>");
-					echo('raw_file = ' . $elm->raw_file . "<br>");
+					echo('raw_data = ' . $elm->raw_data . "<br>");
 					echo('graphs_dir = ' . $elm->graphs_dir . "<br>");
-					echo('ts = ' . $elm->ts . "<br>");
-					echo('datetime = ' . $elm->datetime . "<br>");
 		}
 	}
 	

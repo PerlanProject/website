@@ -20,10 +20,7 @@ get_header();
         	// Flights
         		
             case "import-flights":
-            	$filename = "../data/flights.csv";
-            	$post_type = "flight";
-            	
-            	import_records($filename);
+            	import_records("../data/flights-toolset.csv");
             	break;
             	
             case "delete-flights":
@@ -31,20 +28,13 @@ get_header();
             	break;
             	
             case 'test-flights':
-            	if (function_exists('query_records')) {
-            		query_records('flight');
-            	} else {
-            		query_flights();
-            	}
+				query_records('flight');
             	break;
             	
             // Soundings
             	
             case "import-soundings":
-            	$filename = "../data/soundings.csv";
-            	$post_type = "sounding";
-            	
-            	import_records($filename);
+            	import_records("../data/soundings-toolset.csv");
             	break;
             
             case "delete-soundings":
@@ -52,7 +42,7 @@ get_header();
             	break;
             	
             case 'test-soundings':
-            	query_soundings();
+				query_records('sounding');
             	break;
                 
             ///

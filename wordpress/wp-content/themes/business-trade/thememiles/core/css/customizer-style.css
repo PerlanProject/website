@@ -1,0 +1,25 @@
+
+ #customize-theme-controls #accordion-panel-business_trade_theme_options h3.accordion-section-title,
+ #customize-theme-controls #accordion-section-business_trade_copyright_info_section h3.accordion-section-title,
+ #customize-theme-controls #accordion-panel-business_trade_single_page_options h3.accordion-section-title,
+#customize-theme-controls #accordion-panel-business_trade_color_options h3.accordion-section-title
+
+{
+   background-color:#CB011B;
+   color: #FFF;
+}
+
+
+#customize-theme-controls #accordion-panel-business_trade_theme_options h3.accordion-section-title:after,
+#customize-theme-controls #accordion-section-business_trade_copyright_info_section h3.accordion-section-title:after,
+ #customize-theme-controls #accordion-panel-widgets h3.accordion-section-title:after,
+ #customize-theme-controls #accordion-section-business_trade_single_page_options h3.accordion-section-title:after, 
+#customize-theme-controls #accordion-panel-business_trade_color_options h3.accordion-section-title:after
+{
+   color: #FFF;
+}
+
+.description p
+{
+  color: #000;
+}

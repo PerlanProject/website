@@ -1,14 +1,18 @@
 <?php
 /*
- * Plugin Name: Perlan
+ * Plugin Name: perlan
  * Description: Creates records (posts of Custom Post Type 'flight', 'sounding', etc.) by importing from CSV file
  * Author: jdm
  * Version: 1.0.0
  */
-function import_records($filename = "../data/flights-toolset.csv") {
-	$filename = "../data/flights-toolset.csv";  // debug HACK!!
+function import_records($filename = "") {
 	$print_csv_values=True;
 	$create_posts=True;
+
+	if (empty($filename)) {
+		echo '<H1>ERROR: no filename passed to import_records()</H1>';
+		return;
+	}
 	
 	echo '<H2>Importing CSV ' . $filename . '</H2>';
 	
@@ -85,6 +89,15 @@ function import_records($filename = "../data/flights-toolset.csv") {
 					break;
 			}
 			
+		}
+
+		if (empty($post_type)) {
+			echo '<H1>BAD RECORD: post_type cannot be empty!</H1>';
+			continue;
+		}
+		if (empty($post_title)) {
+			echo '<H1>BAD RECORD: post_title cannot be empty!</H1>';
+			continue;
 		}
 		
 		// Create the post

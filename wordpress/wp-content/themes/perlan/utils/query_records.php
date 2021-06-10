@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Perlan
+ * Plugin Name: perlan
  * Description: test queries of 'flight' posts
  * Author: jdm
  * Version: 1.0.0
