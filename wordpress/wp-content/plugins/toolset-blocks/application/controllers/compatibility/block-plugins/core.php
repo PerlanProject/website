@@ -2,12 +2,29 @@
 
 namespace OTGS\Toolset\Views\Controller\Compatibility\BlockPlugin;
 
+use OTGS\Toolset\Common\Utils\Attachments;
 use OTGS\Toolset\Views\Controller\Compatibility\Base;
 
 /**
  * Handles the compatibility between Views and Core blocks.
  */
 class CoreCompatibility extends Base {
+	/** @var \Toolset_Constants */
+	private $constants;
+
+	/** @var Attachments */
+	private $toolset_attachments;
+
+	/**
+	 * CoreCompatibility constructor.
+	 *
+	 * @param Attachments $toolset_attachments
+	 */
+	public function __construct( \Toolset_Constants $constants, Attachments $toolset_attachments ) {
+		$this->constants = $constants;
+		$this->toolset_attachments = $toolset_attachments;
+	}
+
 	/**
 	 * Initializes the Core blocks integration.
 	 */
@@ -30,6 +47,13 @@ class CoreCompatibility extends Base {
 	 * @return string
 	 */
 	public function adjust_wp_image_class_for_proper_content_tag_filtering( $loop_item_output ) {
+		if (
+			$this->constants->defined( 'REST_REQUEST' ) &&
+			$this->constants->constant( 'REST_REQUEST' )
+		) {
+			return $loop_item_output;
+		}
+
 		if ( ! preg_match_all( '/<(img)\s[^>]+>/', $loop_item_output, $matches, PREG_SET_ORDER ) ) {
 			return $loop_item_output;
 		}
@@ -63,8 +87,8 @@ class CoreCompatibility extends Base {
 			preg_match_all( $pattern, $loop_item_output, $out, PREG_SET_ORDER );
 
 			foreach ( $out as $image_src ) {
-				$maybe_attachment_id = attachment_url_to_postid( $image_src[1] );
-				if ( 0 !== $maybe_attachment_id ) {
+				$maybe_attachment_id = $this->toolset_attachments->get_attachment_id_by_url( $image_src[1] );
+				if ( null !== $maybe_attachment_id ) {
 					$loop_item_output = str_replace( 'wp-image-' . $attachment_id, 'wp-image-' . $maybe_attachment_id, $loop_item_output );
 				}
 			}

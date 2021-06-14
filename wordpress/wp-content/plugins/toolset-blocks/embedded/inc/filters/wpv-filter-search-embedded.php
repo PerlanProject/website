@@ -140,18 +140,25 @@ class WPV_Search_Frontend_Filter {
 			return $view_settings;
 		}
 
-		// Force a query filter by manual search:
-		// there is a search shortcode and there is a value to search by!
-		global $shortcode_tags;
-		$orig_shortcode_tags = $shortcode_tags;
-		remove_all_shortcodes();
-		add_shortcode( 'wpv-filter-search-box', array( 'WPV_Search_Frontend_Filter', 'fake_search_box_shortcode' ) );
-		do_shortcode( $filter_html );
-		$shortcode_tags = $orig_shortcode_tags;
-		// Force a query filter by manual search:
-		// there is a search shortcode and there is a value to search by!
-		$view_settings['search_mode'] = 'manual';
-		$view_settings['post_search_content'] = self::$search_content_where;
+		if (
+			'manual' !== toolset_getarr( $view_settings, 'search_mode' )
+			|| false === toolset_getarr( $view_settings, 'post_search_content', false )
+		) {
+			// Force a query filter by manual search:
+			// there is a search shortcode and there might be a value to search by!
+			global $shortcode_tags;
+			$orig_shortcode_tags = $shortcode_tags;
+			remove_all_shortcodes();
+			add_shortcode( 'wpv-filter-search-box', array( 'WPV_Search_Frontend_Filter', 'fake_search_box_shortcode' ) );
+			do_shortcode( $filter_html );
+			$shortcode_tags = $orig_shortcode_tags;
+			// Force a query filter by manual search:
+			// there is a search shortcode and there might be a value to search by!
+			// Note that if the content to search already exists, we keep it.
+			$view_settings['search_mode'] = 'manual';
+			$view_settings['post_search_content'] = toolset_getarr( $view_settings, 'post_search_content', self::$search_content_where );
+		}
+
 		self::$search_content_where = '';
 
 		$filters = toolset_getarr( $view_settings, \WPV_Filter_Manager::SETTING_KEY, array() );

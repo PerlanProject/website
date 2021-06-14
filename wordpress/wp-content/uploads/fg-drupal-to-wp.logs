@@ -1,4 +1,63 @@
-=== START test_download 2021-03-05 22:32:39 ===
+=== START empty 2021-06-11 03:55:06 ===
+WordPress content removed
+=== END empty 2021-06-11 03:55:07 ===
+
+=== START test_database 2021-06-11 03:57:25 ===
+[ERROR] Couldn't connect to the Drupal database. Please check your parameters. And be sure the WordPress server can access the Drupal database.<br />
+SQLSTATE[HY000] [1045] Access denied for user 'dbperlanrw'@'localhost' (using password: YES)<br />
+Please read the <a href="https://wordpress.org/plugins/fg-drupal-to-wp/faq/" target="_blank">FAQ for the solution</a>.
+=== END test_database 2021-06-11 03:57:25 ===
+
+=== START test_database 2021-06-11 03:59:00 ===
+[ERROR] Couldn't connect to the Drupal database. Please check your parameters. And be sure the WordPress server can access the Drupal database.<br />
+SQLSTATE[HY000] [1045] Access denied for user 'dbperlanrw'@'localhost' (using password: YES)<br />
+Please read the <a href="https://wordpress.org/plugins/fg-drupal-to-wp/faq/" target="_blank">FAQ for the solution</a>.
+=== END test_database 2021-06-11 03:59:00 ===
+
+=== START test_database 2021-06-11 03:59:08 ===
+Connected with success to the Drupal database
+Drupal data found:
+0 articles
+9 pages
+0 categories
+0 tags
+
+[WARNING] Your Drupal database contains users. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains comments. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains custom nodes. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains custom taxonomies. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains URL alias. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains navigation menus. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains node blocks. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> and the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/nodeblock/" target="_blank">NodeBlock add-on</a> to import them.
+=== END test_database 2021-06-11 03:59:08 ===
+
+=== START import 2021-06-11 04:02:16 ===
+Connected with success to the Drupal database
+Drupal data found:
+0 articles
+9 pages
+0 categories
+0 tags
+
+[WARNING] Your Drupal database contains users. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains comments. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains custom nodes. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains custom taxonomies. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains URL alias. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains navigation menus. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> to import them.
+[WARNING] Your Drupal database contains node blocks. You need the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/" target="_blank">Premium version</a> and the <a href="https://www.fredericgilles.net/fg-drupal-to-wordpress/nodeblock/" target="_blank">NodeBlock add-on</a> to import them.
 HTTP connection successful
-=== END test_download 2021-03-05 22:32:41 ===
+Importing categories...
+0 categories imported
+Importing tags...
+0 tags imported
+Importing articles...
+0 articles imported
+Importing pages...
+[ERROR] Can't copy http://perlanproject.cloud/VirtualCockpit.html to /Users/jdm/workbench/Perlan/data_website/wordpress/wp-content/uploads/2015/06/VirtualCockpit.html : Not a media
+9 pages imported
+24 medias imported
+Don't forget to modify internal links.
+IMPORT COMPLETED
+=== END import 2021-06-11 04:02:31 ===
 

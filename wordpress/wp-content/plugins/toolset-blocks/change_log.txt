@@ -1,3 +1,7 @@
+Toolset Views 3.5.3
+	- Fixed a regression on frontend search filters by taxonomies showing options that produce no results.
+-------------------------------------------------------------------------------------------------------------------
+
 Toolset Views 3.5.2
 	- Improved performance by making images responsive by utilizing the "srcset" attribute and by allowing lazy loading.
 	- Improved compatibility with various themes.

@@ -2168,6 +2168,15 @@ function _post_states( $post, $echo = true ) {
 function get_post_states( $post ) {
 	$post_states = array();
 
+	if (empty($post)) {
+		echo 'WARNING: post is empty in get_post_states';
+		return null;
+	}
+	if ($post == null) {
+		echo 'WARNING: post is null in get_post_states';
+		return null;
+	}
+	
 	if ( isset( $_REQUEST['post_status'] ) ) {
 		$post_status = $_REQUEST['post_status'];
 	} else {

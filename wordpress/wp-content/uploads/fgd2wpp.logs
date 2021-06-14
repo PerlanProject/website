@@ -1,0 +1,76 @@
+Users deleted
+WordPress content removed
+=== START save 2021-06-12 16:37:18 ===
+Settings saved
+=== END save 2021-06-12 16:37:18 ===
+
+Connected with success to the Drupal database
+Drupal data found:
+0 articles
+9 pages
+0 categories
+0 tags
+14 users
+126800 comments
+7 Teams
+5 FAQ category
+7 Sponsor Level
+6 Missions
+0 Blog entry
+351 Blogs
+5 Download
+18 Event
+34 Node Block
+0 Panel
+6 Partners
+41 Press
+223 Sponsors
+55 Team Members
+3 Webform
+
+HTTP connection successful
+Sponsor Level taxonomy registered
+Missions taxonomy registered
+Blog entry post type registered
+Blogs post type registered
+Download post type registered
+Event post type registered
+Node Block post type registered
+Panel post type registered
+Partners post type registered
+Press post type registered
+Sponsors post type registered
+Team Members post type registered
+Webform post type registered
+Importing authors...
+Authors imported
+0 categories imported
+0 tags imported
+0 Teams imported
+0 FAQ category imported
+7 Sponsor Level imported
+6 Missions imported
+0 articles imported
+9 pages imported
+13 users imported
+7 blocks imported
+0 Blog entry imported
+351 Blogs imported
+5 Download imported
+18 Event imported
+[ERROR] Can't copy https://perlanproject.org/sites/default/files/Screen Shot 2015-03-18 at 3.58.20 PM.png to /Users/jdm/workbench/Perlan/data_website/wordpress/wp-content/uploads/2015/03/Screen-Shot-2015-03-18-at-3.58.20-PM.png : Not Found
+34 Node Block imported
+0 Panel imported
+6 Partners imported
+41 Press imported
+223 Sponsors imported
+55 Team Members imported
+3 Webform imported
+758 redirects imported
+Setting parent pages...
+0 parent pages set
+10 menu items imported
+3297 medias imported
+Don't forget to modify internal links.
+IMPORT COMPLETED
+7 internal links modified

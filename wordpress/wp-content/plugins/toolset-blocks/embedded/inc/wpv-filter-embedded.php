@@ -2091,7 +2091,7 @@ function wpv_shortcode_wpv_control( $atts ) {
 		} else {
 			// When there is a selected value, create a pseudo-cache based on all the other filters
 			// Note that checkboxes filters can generate nested meta_query entries
-			$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'postmeta' => $field_real_name ) );//wpv_get_dependant_view_query_args();
+			$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'postmeta' => $field_real_name ) );
 			$aux_cache_query = null;
 			if ( isset( $query['meta_query'] ) && is_array( $query['meta_query'] ) ) {
 				foreach ( $query['meta_query'] as $qt_index => $qt_val ) {
@@ -3485,7 +3485,7 @@ class Walker_Category_select extends Walker {
 				}
 			} else {
 				// When there is a selected value, create a pseudo-cache based on all the other filters
-				$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );//wpv_get_dependant_view_query_args();
+				$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );
 				$aux_cache_query = null;
 				if ( isset( $query['tax_query'] ) && is_array( $query['tax_query'] ) ) {
 					foreach ( $query['tax_query'] as $qt_index => $qt_val ) {
@@ -3675,7 +3675,7 @@ class Walker_Category_radios extends Walker {
 				}
 			} else {
 				// When there is a selected value, create a pseudo-cache based on all the other filters
-				$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );//wpv_get_dependant_view_query_args();
+				$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );
 				$aux_cache_query = null;
 				if ( isset( $query['tax_query'] ) && is_array( $query['tax_query'] ) ) {
 					foreach ( $query['tax_query'] as $qt_index => $qt_val ) {
@@ -3906,7 +3906,7 @@ if ( !class_exists( 'WPV_Walker_Category_Checklist' ) ) {
 					}
 				} else {
 					// When there is a selected value, create a pseudo-cache based on all the other filters
-					$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );//wpv_get_dependant_view_query_args();
+					$query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array( 'taxonomy' => $taxonomy ) );
 					$aux_cache_query = null;
 					if ( isset( $query['tax_query'] ) && is_array( $query['tax_query'] ) ) {
 						foreach ( $query['tax_query'] as $qt_index => $qt_val ) {

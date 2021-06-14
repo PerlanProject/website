@@ -689,6 +689,11 @@ class WPV_Taxonomy_Frontend_Filter {
 		return $term_ids;
 	}
 
+	/**
+	 * Check whether we have signs that the current page contains a submitted View.
+	 *
+	 * @return bool
+	 */
 	public static function is_submitted() {
 		// Only the default first page can be cached,
 		// and only when it is not modified by core URL parameters
@@ -705,6 +710,41 @@ class WPV_Taxonomy_Frontend_Filter {
 		    if ( false !== toolset_getget( $modifier, false ) ) {
 				return true;
 		    }
+		}
+
+		return false;
+	}
+
+	/**
+	 * Check whether the current View settings define additional query filters.
+	 * *
+	 * This will halt optimization of the frontend filter rendering,
+	 * because dependency + hide empty can not be replaced by not gathering terms without assigned posts.
+	 *
+	 * @param mixed[] $view_settings
+	 * * @return bool
+	 */
+	public static function has_query_filter( $view_settings ) {
+		$current_query = apply_filters( 'wpv_filter_wpv_get_dependant_extended_query_args', array(), $view_settings, array() );
+
+		// Parameters to check against.
+		$query_filter_args = [
+			'author', 'author_name', 'author__in', 'author__not_in',
+			'cat', 'category_name', 'category__and', 'category__in', 'category__not_in',
+			'tag', 'tag_id', 'tag__and', 'tag__in', 'tag__not_in', 'tag_slug__and', 'tag_slug__in',
+			'tax_query',
+			's',
+			'p', 'name', 'page_id', 'pagename', 'post_parent', 'post_parent__in', 'post_parent__not_in', 'post__in', 'post__not_in', 'post_name__in',
+			'has_password',
+			'post_status',
+			'date_query',
+			'meta_key', 'meta_query',
+		];
+		// Has search filter.
+		foreach ( $query_filter_args as $filter_query_key ) {
+			if ( false !== toolset_getarr( $current_query, $filter_query_key, false ) ) {
+				return true;
+			}
 		}
 
 		return false;
@@ -829,15 +869,24 @@ class WPV_Taxonomy_Frontend_Filter {
 		$walker_args = WPV_Taxonomy_Frontend_Filter::set_dependency_counters_and_empty_action( $walker_args, $atts, $view_settings );
 
 		if (
-			false === WPV_Taxonomy_Frontend_Filter::is_submitted()
-			&& 'enabled' === $walker_args['dependency']
+			'enabled' === $walker_args['dependency']
 			&& 'hide' === $walker_args['empty_action']
 		) {
-			// First pageload and hide_empty already set:
-			// We need tot to calculate the appearance for each item.
-			$walker_args['dependency'] = 'disabled';
+			// Dependency and hide_empty already set as empty_action:
+			// lets skip by design terms with no assigned posts.
+			// We need not to calculate the appearance for each item.
 			$atts['hide_empty'] = 'true';
+			if (
+				false === WPV_Taxonomy_Frontend_Filter::is_submitted()
+				&& false === WPV_Taxonomy_Frontend_Filter::has_query_filter( $view_settings )
+			) {
+				// Also, first pageload and no extra filters modifying the query:
+				// we need not to calculate the appearance for each item
+				// as to-be-removed items are precisely those without assigned posts.
+				$walker_args['dependency'] = 'disabled';
+			}
 		}
+
 		// Query cache
 		$walker_args = WPV_Taxonomy_Frontend_Filter::set_query_cache( $walker_args, $atts, $view_settings );
 

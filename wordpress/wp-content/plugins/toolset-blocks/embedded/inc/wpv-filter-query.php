@@ -656,8 +656,9 @@ class WPV_View_Post_Query {
 			);
 			extract( $view_settings_defaults );
 
-			$id				= apply_filters( 'wpv_filter_wpv_get_current_view', null );
-			$view_settings	= apply_filters( 'wpv_filter_wpv_get_view_settings', array() );
+			$id = array_key_exists( 'view_id', $view_settings )
+				? $view_settings['view_id']
+				: apply_filters( 'wpv_filter_wpv_get_current_view', null );
 
 			$view_settings['view_id'] = $id;
 			extract( $view_settings, EXTR_OVERWRITE );
