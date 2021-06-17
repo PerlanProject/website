@@ -29,7 +29,7 @@ $format = get_post_format();
 				<?php the_post_thumbnail( 'illustratr-featured-image' ); ?>
 			</a>
 			<?php else : ?>
-				<?php // the_post_thumbnail( 'illustratr-featured-image' ); ?>
+				<?php the_post_thumbnail( 'illustratr-featured-image' ); ?>
 			<?php endif; ?>
 		</div><!-- .entry-thumbnail -->
 	<?php endif; ?>
@@ -37,7 +37,7 @@ $format = get_post_format();
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) {
-				// the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
 			} else {
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			}
