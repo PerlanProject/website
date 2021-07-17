@@ -27,8 +27,6 @@ get_header(); ?>
 				endif;
 			?>
 
-			<?php illustratr_post_nav(); ?>
-
 		<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
